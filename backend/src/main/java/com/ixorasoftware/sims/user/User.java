@@ -41,16 +41,16 @@ public class User implements UserDetails
     private String lastName;
 
     @Column(nullable = false)
-    private String email;
-
-    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
+    private String profileImageId;
+
+    @Column(nullable = false)
+    private String email;
+
     @Column(nullable = false)
     private String password;
-
-    private String profileImageId;
 
     @ManyToMany
     @JoinTable(
@@ -74,27 +74,29 @@ public class User implements UserDetails
         isEnabled = true;
     }
 
-    public User(String firstName, String middleName, String lastName, String email, Gender gender, String password)
+    public User(String firstName, String middleName, String lastName, Gender gender, String email, String password, List<Role> roles)
     {
         this();
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
-        this.email = email;
         this.gender = gender;
+        this.email = email;
         this.password = password;
+        this.roles = roles;
     }
 
-    public User(String firstName, String middleName, String lastName, String email, Gender gender, String password, String profileImageId)
+    public User(String firstName, String middleName, String lastName, Gender gender, String profileImageId, String email, String password, List<Role> roles)
     {
         this();
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
-        this.email = email;
         this.gender = gender;
-        this.password = password;
         this.profileImageId = profileImageId;
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
     }
 
     @Override
