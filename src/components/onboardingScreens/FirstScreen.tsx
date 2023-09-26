@@ -90,7 +90,7 @@ const FirstScreen = ({navigation}: any): JSX.Element => {
   return (
     <View style={styles.background}>
       <Image
-        source={require('../../resource/new/firstImage.jpeg')}
+        source={require('../../../resource/new/firstImage.jpeg')}
         style={styles.backgroundImage}
         resizeMethod="resize"
         resizeMode="cover"

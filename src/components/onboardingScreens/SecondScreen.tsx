@@ -38,12 +38,10 @@ import Animated, {
 // import React, {useEffect}
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import SecondScreen from './SecondScreen';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 const {width, height} = Dimensions.get('window');
 
-const ThirdScreen = ({navigation}): JSX.Element => {
+const SecondScreen = ({navigation}: {navigation: any}): JSX.Element => {
   // const navigation = useNavigation();
   // const {navigate} = useNavigation<NativeStackNavigationProp<ParamListBase>>();
   // };
@@ -90,24 +88,25 @@ const ThirdScreen = ({navigation}): JSX.Element => {
   return (
     <View style={styles.background}>
       <Image
-        source={require('../../resource/new/thirdImage.jpeg')}
+        source={require('../../../resource/new/secondImage.jpeg')}
         style={styles.backgroundImage}
         resizeMethod="resize"
         resizeMode="cover"
       />
       <View style={styles.welcomeText}>
         <View style={styles.text}>
-          <Text style={styles.textOne}>Giving you the best </Text>
-          <Text style={styles.textTwo}>experience ever.</Text>
+          <Text style={styles.textOne}>An app that makes</Text>
+          <Text style={styles.textTwo}>Studying, lectures</Text>
+          <Text style={styles.textThree}>interesting</Text>
         </View>
         <View style={styles.skipLinks}>
           <View>
             <Text style={styles.skip}>SKIP</Text>
           </View>
           <View style={styles.space}>
-            <View style={styles.inactivePageOne} />
-            <View style={styles.inactivePageOne} />
+            <View style={styles.inactivePageTwo} />
             <View style={styles.activePage} />
+            <View style={styles.inactivePageTwo} />
           </View>
           <View style={styles.goToNextPage}>
             <View style={styles.progressRing}>
@@ -140,7 +139,8 @@ const ThirdScreen = ({navigation}): JSX.Element => {
                 </Svg>
               </Animated.View>
             </View>
-            <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ThirdScreen')}>
               <FontAwesomeIcon
                 style={styles.nextPageArrow}
                 icon={faCircleArrowRight}
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
   backgroundImage: {
     flex: 2,
     flexDirection: 'column',
-    width: 415,
+    width: 450,
     height: 490,
     position: 'absolute',
   },
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    paddingTop: 50,
+    paddingTop: 30,
   },
 
   textOne: {
@@ -188,6 +188,12 @@ const styles = StyleSheet.create({
   },
 
   textTwo: {
+    color: 'black',
+    fontWeight: 'bold',
+    fontSize: 25,
+  },
+
+  textThree: {
     color: 'black',
     fontWeight: 'bold',
     fontSize: 25,
@@ -250,5 +256,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ThirdScreen;
-
+export default SecondScreen;

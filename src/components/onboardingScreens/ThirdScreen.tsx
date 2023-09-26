@@ -37,11 +37,13 @@ import Animated, {
 // import React from 'react';
 // import React, {useEffect}
 import {ParamListBase, useNavigation} from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import SecondScreen from './SecondScreen';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 const {width, height} = Dimensions.get('window');
 
-const SecondScreen = ({navigation}): JSX.Element => {
+const ThirdScreen = ({navigation}: {navigation: any}): JSX.Element => {
   // const navigation = useNavigation();
   // const {navigate} = useNavigation<NativeStackNavigationProp<ParamListBase>>();
   // };
@@ -88,25 +90,24 @@ const SecondScreen = ({navigation}): JSX.Element => {
   return (
     <View style={styles.background}>
       <Image
-        source={require('../../resource/new/secondImage.jpeg')}
+        source={require('../../../resource/new/thirdImage.jpeg')}
         style={styles.backgroundImage}
         resizeMethod="resize"
         resizeMode="cover"
       />
       <View style={styles.welcomeText}>
         <View style={styles.text}>
-          <Text style={styles.textOne}>An app that makes</Text>
-          <Text style={styles.textTwo}>Studying, lectures</Text>
-          <Text style={styles.textThree}>interesting</Text>
+          <Text style={styles.textOne}>Giving you the best </Text>
+          <Text style={styles.textTwo}>experience ever.</Text>
         </View>
         <View style={styles.skipLinks}>
           <View>
             <Text style={styles.skip}>SKIP</Text>
           </View>
           <View style={styles.space}>
-            <View style={styles.inactivePageTwo} />
+            <View style={styles.inactivePageOne} />
+            <View style={styles.inactivePageOne} />
             <View style={styles.activePage} />
-            <View style={styles.inactivePageTwo} />
           </View>
           <View style={styles.goToNextPage}>
             <View style={styles.progressRing}>
@@ -139,7 +140,8 @@ const SecondScreen = ({navigation}): JSX.Element => {
                 </Svg>
               </Animated.View>
             </View>
-           <TouchableOpacity onPress={() => navigation.navigate('ThirdScreen')}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('LoginScreen')}>
               <FontAwesomeIcon
                 style={styles.nextPageArrow}
                 icon={faCircleArrowRight}
@@ -162,7 +164,7 @@ const styles = StyleSheet.create({
   backgroundImage: {
     flex: 2,
     flexDirection: 'column',
-    width: 450,
+    width: 415,
     height: 490,
     position: 'absolute',
   },
@@ -177,23 +179,17 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    paddingTop: 30,
+    paddingTop: 50,
   },
 
   textOne: {
     color: 'black',
     fontWeight: 'bold',
-      fontSize: 25,
+    fontSize: 25,
   },
 
   textTwo: {
     color: 'black',
-    fontWeight: 'bold',
-    fontSize: 25,
-    },
-  
-    textThree: {
-       color: 'black',
     fontWeight: 'bold',
     fontSize: 25,
   },
@@ -255,4 +251,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SecondScreen;
+export default ThirdScreen;

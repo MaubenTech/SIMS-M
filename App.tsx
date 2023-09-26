@@ -3,13 +3,19 @@ import React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import FirstScreen from './src/Onboarding Screens/FirstScreen';
-import SecondScreen from './src/Onboarding Screens/SecondScreen';
-import ThirdScreen from './src/Onboarding Screens/ThirdScreen';
-import LoginScreen from './src/Onboarding Screens/LoginScreen';
+import FirstScreen from './src/components/onboardingScreens/FirstScreen';
+import SecondScreen from './src/components/onboardingScreens/SecondScreen';
+import ThirdScreen from './src/components/onboardingScreens/ThirdScreen';
+import LoginScreen from './src/components/loginScreens/LoginScreen';
+import {
+  NativeStackNavigationConfig,
+  NativeStackNavigationOptions,
+} from '@react-navigation/native-stack/lib/typescript/src/types';
+import HomeScreen from './src/components/homeScreens/HomeScreen';
 
 const App = (): JSX.Element => {
   const Stack = createNativeStackNavigator();
+  // const naniga: NativeStackNavigationOptions;
 
   return (
     <NavigationContainer>
@@ -27,7 +33,7 @@ const App = (): JSX.Element => {
           component={SecondScreen}
           options={{
             animation: 'slide_from_right',
-           headerShown: false,
+            headerShown: false,
           }}
         />
         <Stack.Screen
@@ -41,6 +47,14 @@ const App = (): JSX.Element => {
         <Stack.Screen
           name="LoginScreen"
           component={LoginScreen}
+          options={{
+            animation: 'slide_from_right',
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="HomeScreen"
+          component={HomeScreen}
           options={{
             animation: 'slide_from_right',
             headerShown: false,
