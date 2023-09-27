@@ -17,8 +17,8 @@ public class UserDetailsService implements org.springframework.security.core.use
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
     {
-        return userRepository.findByEmail(username)
+        return userRepository.findByUsername(username)
             .orElseThrow(() -> new UsernameNotFoundException(
-                "User with email %s not found".formatted(username)));
+                "User with username %s not found".formatted(username)));
     }
 }

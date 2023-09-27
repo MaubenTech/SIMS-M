@@ -14,11 +14,13 @@ public class SimsApplication {
 	@Bean
 	CommandLineRunner run(UserRepository userRepository,
 						  RoleRepository roleRepository,
-						  PermissionRepository permissionRepository)
+						  PermissionRepository permissionRepository,
+						  UserService userService)
 	{
 		return args -> {
-			User user = addUser(userRepository, roleRepository, permissionRepository);
-			System.out.println(user);
+//			User user = addUser(userRepository, roleRepository, permissionRepository);
+//			System.out.println(user);
+			System.out.println(userService.getUserByUsername("janedoe"));
 		};
 	}
 
@@ -33,15 +35,10 @@ public class SimsApplication {
 		roleRepository.save(r1);
 
 		User u1 = new User("Jane", "Constance", "Doe", Gender.FEMALE,
-						  "janedoe@gmail.com","secret", List.of(r1));
+						  "janedoe","secret", List.of(r1));
 
 		return userRepository.save(u1);
 	}
-	/*
-	* 1. READ_STUDENT
-	* 2. WRITE_STUDENT
-	* 3. ROLE_ADMIN
-	* */
 
 	public static void main(String[] args) {
 		SpringApplication.run(SimsApplication.class, args);

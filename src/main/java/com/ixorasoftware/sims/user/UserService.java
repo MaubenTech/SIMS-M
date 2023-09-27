@@ -30,8 +30,8 @@ public class UserService
 
     public void addUser(UserDTO userDTO)
     {
-        if(userRepository.existsByEmail(userDTO.email()))
-            throw new DuplicateResourceException("User with email %s already exists".formatted(userDTO.email()));
+        if(userRepository.existsByUsername(userDTO.username()))
+            throw new DuplicateResourceException("User with username [%s] already exists".formatted(userDTO.username()));
 
         List<Role> roles = userDTO.roles().stream()
             .map(roleName -> roleRepository.findByName(roleName.toUpperCase())
@@ -44,7 +44,7 @@ public class UserService
             userDTO.lastName(),
             Gender.fromName(userDTO.gender()),
             userDTO.profileImageId(),
-            userDTO.email(),
+            userDTO.username(),
             passwordEncoder.encode(userDTO.password()),
             roles
             );
@@ -52,11 +52,11 @@ public class UserService
         userRepository.save(user);
     }
 
-    public UserDTO getUserByEmail(String email)
+    public UserDTO getUserByUsername(String username)
     {
-        return userRepository.findByEmail(email)
+        return userRepository.findByUsername(username)
             .map(userDTOMapper)
-            .orElseThrow(() -> new ResourceNotFoundException("User with email %s not found".formatted(email)));
+            .orElseThrow(() -> new ResourceNotFoundException("User with username [%s] not found".formatted(username)));
     }
 
     public UserDTO getUserById(Integer id)
@@ -74,7 +74,7 @@ public class UserService
             .collect(Collectors.toList());
     }
 
-    private void updateUser(Integer id, UserDTO updatedUser)
+    public void updateUser(Integer id, UserDTO updatedUser)
     {
         User user;
         try{
@@ -98,16 +98,6 @@ public class UserService
         if(updatedUser.lastName() != null && !updatedUser.lastName().equals(user.getLastName()))
         {
             user.setLastName(updatedUser.lastName());
-            changes = true;
-        }
-        if(updatedUser.email() != null && !updatedUser.email().equals(user.getEmail()))
-        {
-            user.setEmail(updatedUser.email());
-            changes = true;
-        }
-        if(updatedUser.gender() != null && !updatedUser.gender().equalsIgnoreCase(user.getGender().getName()))
-        {
-            user.setGender(Gender.fromName(updatedUser.gender()));
             changes = true;
         }
         if(updatedUser.profileImageId() != null &&
