@@ -1,9 +1,6 @@
 package com.ixorasoftware.sims.user;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Collection;
 import java.util.Objects;
@@ -16,6 +13,7 @@ public class Role
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @Column(nullable = false)
     private String name;
 
     @ManyToMany(fetch = FetchType.EAGER)
