@@ -2,8 +2,7 @@ package com.ixorasoftware.sims.user;
 
 import java.util.List;
 
-public record UserDTO(
-    Integer id,
+public record UserRegistrationRequest(
     String firstName,
     String middleName,
     String lastName,
@@ -11,6 +10,7 @@ public record UserDTO(
     String profileImageId,
     String username,
     String password,
-    List<String> roles)
+    List<String> roles
+)
 {
 }

@@ -28,24 +28,24 @@ public class UserService
         this.userDTOMapper = userDTOMapper;
     }
 
-    public void addUser(UserDTO userDTO)
+    public void addUser(UserRegistrationRequest userRegistrationRequest)
     {
-        if(userRepository.existsByUsername(userDTO.username()))
-            throw new DuplicateResourceException("User with username [%s] already exists".formatted(userDTO.username()));
+        if(userRepository.existsByUsername(userRegistrationRequest.username()))
+            throw new DuplicateResourceException("User with username [%s] already exists".formatted(userRegistrationRequest.username()));
 
-        List<Role> roles = userDTO.roles().stream()
+        List<Role> roles = userRegistrationRequest.roles().stream()
             .map(roleName -> roleRepository.findByName(roleName.toUpperCase())
                 .orElseThrow(() -> new ResourceNotFoundException("Role [%s] not found".formatted(roleName))))
             .collect(Collectors.toList());
 
         User user = new User(
-            userDTO.firstName(),
-            userDTO.middleName(),
-            userDTO.lastName(),
-            Gender.fromName(userDTO.gender()),
-            userDTO.profileImageId(),
-            userDTO.username(),
-            passwordEncoder.encode(userDTO.password()),
+            userRegistrationRequest.firstName(),
+            userRegistrationRequest.middleName(),
+            userRegistrationRequest.lastName(),
+            Gender.fromName(userRegistrationRequest.gender()),
+            userRegistrationRequest.profileImageId(),
+            userRegistrationRequest.username(),
+            passwordEncoder.encode(userRegistrationRequest.password()),
             roles
             );
 
@@ -74,7 +74,7 @@ public class UserService
             .collect(Collectors.toList());
     }
 
-    public void updateUser(Integer id, UserDTO updatedUser)
+    public void updateUser(Integer id, UserUpdateRequest updatedUser)
     {
         User user;
         try{

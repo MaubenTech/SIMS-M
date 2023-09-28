@@ -52,19 +52,23 @@ class UserServiceTest
     void addUser_shouldAddUser()
     {
         // Given
-        UserDTO userDTO = getUserDTO();
+        UserRegistrationRequest newUser = new UserRegistrationRequest(
+            "Jane", "Constance", "Doe",
+            "Female", "path/to/image",
+            "janedoe", "secret",
+            List.of(ROLE_ADMIN));
 
         String pwHash = "l987jHT%^&*65rfgh8";
 
-        given(userRepository.existsByUsername(userDTO.username())).willReturn(false);
+        given(userRepository.existsByUsername(newUser.username())).willReturn(false);
         given(roleRepository.findByName(ROLE_ADMIN))
             .willReturn(
                 Optional.of(getRoles().get(ROLE_ADMIN))
             );
-        given(passwordEncoder.encode(userDTO.password())).willReturn(pwHash);
+        given(passwordEncoder.encode(newUser.password())).willReturn(pwHash);
 
         // When
-        userService.addUser(userDTO);
+        userService.addUser(newUser);
 
         // Then
         ArgumentCaptor<User> userArgumentCaptor = ArgumentCaptor.forClass(User.class);
@@ -73,8 +77,8 @@ class UserServiceTest
 
         User savedUser = userArgumentCaptor.getValue();
 
-        assertEquals(userDTO.firstName(), savedUser.getFirstName());
-        assertEquals(userDTO.lastName(), savedUser.getLastName());
+        assertEquals(newUser.firstName(), savedUser.getFirstName());
+        assertEquals(newUser.lastName(), savedUser.getLastName());
         assertEquals(pwHash, savedUser.getPassword());
     }
 
@@ -83,14 +87,18 @@ class UserServiceTest
     {
         // Given
         // When
-        UserDTO userDTO = getUserDTO();
+        UserRegistrationRequest newUser = new UserRegistrationRequest(
+            "Jane", "Constance", "Doe",
+            "Female", "path/to/image",
+            "janedoe", "secret",
+            List.of(ROLE_ADMIN));
 
-        given(userRepository.existsByUsername(userDTO.username())).willReturn(true);
+        given(userRepository.existsByUsername(newUser.username())).willReturn(true);
 
         // Then
         assertThrows(DuplicateResourceException.class,
-                     () -> userService.addUser(userDTO),
-                     "User with username [%s] already exists".formatted(userDTO.username()));
+                     () -> userService.addUser(newUser),
+                     "User with username [%s] already exists".formatted(newUser.username()));
     }
 
     @Test
@@ -214,8 +222,8 @@ class UserServiceTest
         given(userRepository.getReferenceById(id)).willReturn(user);
 
         // When
-        UserDTO userDTO = new UserDTO("Jenny", "Constance", "Doe", "path/to/image");
-        userService.updateUser(id, userDTO);
+        UserUpdateRequest userUpdateRequest = new UserUpdateRequest("Jenny", "Constance", "Doe", "path/to/image");
+        userService.updateUser(id, userUpdateRequest);
 
         // Then
         ArgumentCaptor<User> userArgumentCaptor = ArgumentCaptor.forClass(User.class);
@@ -224,9 +232,9 @@ class UserServiceTest
 
         User savedUser = userArgumentCaptor.getValue();
 
-        assertEquals(userDTO.firstName(), savedUser.getFirstName());
-        assertEquals(userDTO.lastName(), savedUser.getLastName());
-        assertEquals(userDTO.profileImageId(), savedUser.getProfileImageId());
+        assertEquals(userUpdateRequest.firstName(), savedUser.getFirstName());
+        assertEquals(userUpdateRequest.lastName(), savedUser.getLastName());
+        assertEquals(userUpdateRequest.profileImageId(), savedUser.getProfileImageId());
     }
 
     @Test
@@ -239,14 +247,15 @@ class UserServiceTest
         given(userRepository.getReferenceById(id)).willThrow(EntityNotFoundException.class);
 
         // Then
+        UserUpdateRequest userUpdateRequest = new UserUpdateRequest("Jenny", "Constance", "Doe", "path/to/image");
         assertThrows(ResourceNotFoundException.class,
-                     () -> userService.updateUser(id, getUserDTO()),
+                     () -> userService.updateUser(id, userUpdateRequest),
                      "User with id [%s] not found".formatted(id));
     }
 
     private UserDTO getUserDTO()
     {
-        return new UserDTO("Jane", "Constance", "Doe",
+        return new UserDTO(1, "Jane", "Constance", "Doe",
                            "Female",
                            null,
                            "janedoe","secret",
