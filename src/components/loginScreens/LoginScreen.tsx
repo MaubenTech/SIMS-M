@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React, {useEffect, useState} from 'react';
 import {
@@ -10,12 +11,12 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import {} from 'react-native-reanimated';
+import { blue } from 'react-native-reanimated';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {SelectList} from 'react-native-dropdown-select-list';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faTriangleExclamation} from '@fortawesome/free-solid-svg-icons';
+import {faEyeSlash, faImage, faTriangleExclamation} from '@fortawesome/free-solid-svg-icons';
 
 const {width, height} = Dimensions.get('window');
 
@@ -69,8 +70,11 @@ const LoginScreen = ({navigation}: {navigation: any}): JSX.Element => {
   }
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       <View style={styles.loginContainer}>
+         <View style={styles.header}>
+          <FontAwesomeIcon icon={faImage} size={40}/>
+        </View>
         <Text style={styles.login}>Log in</Text>
         <Text style={styles.loginText}>
           Enter your Email to Log in to Mauben app
@@ -87,17 +91,21 @@ const LoginScreen = ({navigation}: {navigation: any}): JSX.Element => {
             value={username}
           />
 
-          <TextInput
-            style={styles.input}
-            secureTextEntry={true}
-            // maxLength={4}
-            placeholder={'Password'}
-            onChangeText={text => {
-              setPassword(text);
-              if (displayError) setDisplayError(false);
-            }}
-            value={password}
-          />
+          <View style={styles.pwFieldContainer}>
+            <TextInput
+                style={styles.input}
+                secureTextEntry={true}
+                // maxLength={4}
+                placeholder={'Password'}
+                onChangeText={text => {
+                  setPassword(text);
+                  if (displayError) setDisplayError(false);
+                }}
+                value={password}
+              />
+            <FontAwesomeIcon icon={faEyeSlash} color="grey" size={25} style={{position: 'absolute', right: 10, top: 10}}/>
+          </View>
+          
 
           <View style={styles.dropDownContainer}>
             <SelectList
@@ -150,6 +158,22 @@ const LoginScreen = ({navigation}: {navigation: any}): JSX.Element => {
               Continue
             </Text>
           </TouchableOpacity>
+          <View style={styles.forgotPWContainer}>
+              <Text style={styles.blueText}>Forgot Your Password? </Text>
+          </View>
+          <View style={styles.termsContainer}>
+            <Text>By signing up, you agree and you accept our 
+              <Text style={styles.blueText}> Terms</Text>
+              <Text> &</Text>
+            </Text>
+            <View style={styles.policy}>
+              <Text>
+                <Text style={styles.blueText}> Conditions</Text>
+                    <Text> and</Text>
+                <Text style={styles.blueText}> Privacy Policy</Text>
+              </Text>
+              </View>
+          </View>
         </View>
       </View>
     </View>
@@ -157,6 +181,11 @@ const LoginScreen = ({navigation}: {navigation: any}): JSX.Element => {
 };
 
 const styles = StyleSheet.create({
+
+  header: {
+    alignItems: 'center',
+    marginTop: 50,
+  },
   loginContainer: {
     // alignItems: 'center',
     justifyContent: 'center',
@@ -165,7 +194,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   login: {
-    marginTop: 90,
+    marginTop: 40,
     fontWeight: 'bold',
     color: 'black',
     fontSize: 30,
@@ -179,6 +208,10 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     gap: 15,
     // backgroundColor: '#ff0',
+  },
+
+  pwFieldContainer: {
+    position: 'relative',
   },
   input: {
     // marginTop: 15,
@@ -221,6 +254,22 @@ const styles = StyleSheet.create({
     // fontWeight: 'bold',
     textAlign: 'center',
   },
+
+  termsContainer: {
+    alignItems: 'center',
+  },
+  
+  forgotPWContainer: {
+    alignItems: 'center',
+  },
+
+  blueText: {
+    color: '#3D72FF',
+  },
+
+  policy: {
+    alignItems: 'center',
+  }
 });
 
 export default LoginScreen;
