@@ -48,6 +48,15 @@ section{
     font-family: 'Roboto', sans-serif;
 }
 
+.main-menu li.active{
+    border-bottom: 5px solid var(--site-color);
+}
+
+.main-menu li a {
+    text-decoration: none;
+    color: white;
+}
+
 .logo{
     font-family: var(--cedar-font);
     font-weight: bold;
