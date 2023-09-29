@@ -1,0 +1,11 @@
+package com.ixorasoftware.sims.parent;
+
+import com.ixorasoftware.sims.student.Student;
+import com.ixorasoftware.sims.user.UserUpdateRequest;
+
+import java.util.List;
+
+public record ParentUpdateRequest(List<Student> children, ParentStatus parentStatus, UserUpdateRequest userDetails)
+{
+
+}
