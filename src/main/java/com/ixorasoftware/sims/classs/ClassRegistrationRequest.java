@@ -1,4 +1,4 @@
 package com.ixorasoftware.sims.classs;
 
-public record ClassRegistrationRequest(GradeLevel gradeLevel, String arm) {
+public record ClassRegistrationRequest(String gradeLevel, String arm) {
 }

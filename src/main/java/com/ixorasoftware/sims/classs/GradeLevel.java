@@ -2,6 +2,8 @@ package com.ixorasoftware.sims.classs;
 
 import lombok.Getter;
 
+import java.util.NoSuchElementException;
+
 @Getter
 public enum GradeLevel
 {
@@ -33,7 +35,7 @@ public enum GradeLevel
             case "SSS1", "Senior Secondary School 1" -> GradeLevel.SSS1;
             case "SSS2", "Senior Secondary School 2" -> GradeLevel.SSS2;
             case "SSS3", "Senior Secondary School 3" -> GradeLevel.SSS3;
-            default -> throw new IllegalArgumentException("GradeLevel %s does not exist".formatted(name));
+            default -> throw new NoSuchElementException("GradeLevel %s does not exist".formatted(name));
         };
     }
 
@@ -47,7 +49,7 @@ public enum GradeLevel
             case 10 -> GradeLevel.SSS1;
             case 11 -> GradeLevel.SSS2;
             case 12 -> GradeLevel.SSS3;
-            default -> throw new IllegalArgumentException("GradeLevel %d does not exist".formatted(gradeNumber));
+            default -> throw new NoSuchElementException("GradeLevel %d does not exist".formatted(gradeNumber));
         };
     }
 }

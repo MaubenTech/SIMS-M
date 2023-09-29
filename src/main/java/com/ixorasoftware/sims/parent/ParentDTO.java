@@ -7,14 +7,14 @@ import lombok.Builder;
 import java.util.List;
 
 @Builder
-public record ParentDTO(Integer id, List<Integer> children, String status, Integer userInfo)
+public record ParentDTO(Integer id, List<Integer> children, String status, UserDTO userInfo)
 {
-    public ParentDTO(List<Integer> children, String status, Integer userInfo)
+    public ParentDTO(List<Integer> children, String status, UserDTO userInfo)
     {
         this(null, children, status, userInfo);
     }
 
-    public ParentDTO(String status, Integer userInfo)
+    public ParentDTO(String status, UserDTO userInfo)
     {
         this(null, null, status, userInfo);
     }
