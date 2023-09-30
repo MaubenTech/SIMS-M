@@ -69,9 +69,16 @@
     width: 100%;
     display: flex;
     text-decoration: none;
-    color: white;
+    color: var(--white);
     align-items: center;
     
+}
+
+.dashboard-nav li a.active{
+    background-color: var(--white);
+    color: var(--primary-color);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
 }
 
 .dashboard-nav li:hover a{
@@ -94,6 +101,43 @@
     border-radius: 50%;
     box-shadow: 35px 35px 0 10px var(--white);
     pointer-events: none;
+}
+
+.dashboard-nav li a.active::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+.dashboard-nav li:hover a::after{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    bottom: -50px;
+    background-color: transparent;
+    border-radius: 50%;
+    right: 0;
+    box-shadow: 35px -35px 0 10px var(--white);
+}
+
+.dashboard-nav li a.active::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    bottom: -50px;
+    background-color: transparent;
+    border-radius: 50%;
+    right: 0;
+    box-shadow: 35px -35px 0 10px var(--white);
 }
 
 .db-bottom{
@@ -134,6 +178,18 @@
     right: 0;
     box-shadow: 35px 35px 0 10px var(--white);
     pointer-events: none;
+}
+
+.theme-mode-container:hover button:after{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    bottom: -50px;
+    background-color: transparent;
+    border-radius: 50%;
+    right: 0;
+    box-shadow: 35px -35px 0 10px var(--white);
 }
 
 .theme-mode-container:hover button{
@@ -192,6 +248,18 @@
     border-radius: 50%;
     right: 0;
     box-shadow: 35px 35px 0 10px var(--white);
+}
+
+.log:hover button::after{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    bottom: -50px;
+    background-color: transparent;
+    border-radius: 50%;
+    right: 0;
+    box-shadow: 35px -35px 0 10px var(--white);
 }
 
 

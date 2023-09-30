@@ -1,0 +1,26 @@
+.main{
+    position: absolute;
+    width: calc(100% - 20%);
+    height: 100%;
+    transition: 0.5s
+}
+
+.topbar{
+    height: 10%;
+    padding: 0 10px;
+}
+
+.toggle{
+    position: relative;
+    top: 0;
+    width: 2%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.toggle .icon{
+    font-size: 30px;
+}
