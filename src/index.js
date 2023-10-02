@@ -12,11 +12,16 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Container from "./components/Container";
+import { Login } from "./components/Login";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
   {
     path: "/learning-center/dashboard",

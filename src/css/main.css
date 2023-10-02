@@ -1,19 +1,32 @@
-.main{
-    position: absolute;
-    width: calc(100% - 20%);
-    height: 100%;
-    transition: 0.5s
+:root {
+    --cedar-font: 'Cedarville Cursive', cursive;
+    --site-color: #D39B3F;
+    --roboto-font: 'Roboto', sans-serif;
+    --primary-color: #DE9B3D;
+    --white: #fff;
 }
+
+.main{
+    width: 98%;
+    height: 100%;
+    transition: 0.5s;
+    padding: 0 10px;
+}
+
 
 .topbar{
     height: 10%;
-    padding: 0 10px;
+    /* padding: 0 10px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 .toggle{
     position: relative;
     top: 0;
-    width: 2%;
+    width: 5%;
     height: 60px;
     display: flex;
     justify-content: center;
@@ -21,6 +34,24 @@
     cursor: pointer;
 }
 
-.toggle .icon{
-    font-size: 30px;
+.toggle .toggleIcon{
+    width: 100%;
+    font-size: 26px;
 }
+
+box-icon[name = 'x']{
+    width: 40px !important;
+    height: 40px !important;
+} 
+
+.topbar .user{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.topbar .user > box-icon{
+    margin-right: 10px;
+    color: var(--primary-color)
+}
+

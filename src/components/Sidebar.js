@@ -30,10 +30,13 @@ const navigationLinks = [
   },
 ];
 
-const Sidebar = () => {
+const Sidebar = ({ isToggleActive }) => {
   return (
     <>
       <div className="logo">
+        <span className="icon">
+          <box-icon name="bulb" type="solid"></box-icon>
+        </span>
         <h2>SIMS</h2>
       </div>
       <ul className="dashboard-nav">
@@ -53,7 +56,10 @@ const Sidebar = () => {
           </li>
         ))}
       </ul>
-      <div className="db-bottom">
+      <div
+        className="db-bottom"
+        style={isToggleActive ? { marginTop: "190%" } : { marginTop: "60px" }}
+      >
         <div className="theme-mode-container">
           <span className="icon">
             <box-icon name="moon" className="icon"></box-icon>
