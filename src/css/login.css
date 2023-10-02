@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+
+:root {
+    --cedar-font: 'Cedarville Cursive', cursive;
+    --site-color: #D39B3F;
+    --roboto-font: 'Roboto', sans-serif;
+    --primary-color: #DE9B3D;
+    --white: #fff;
+    --grey: #B6B6B6;
+    --blue: #056FFF;
+    --bg: #E2DEDE
+}
+
+@font-face {
+    font-family: 'Cedarville Cursive', cursive;
+    src: url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+}
+
+
+.login-container{
+    width: 100%;
+    height: 100vh;
+}
+
+.login-form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.left-pane{
+    width: 50%;
+    background-color: var(--primary-color);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.left-pane-inner{
+    white-space: nowrap;
+    transition: transform 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    /* z-index: 1; */
+}
+
+.carousel-item{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin-bottom: 50%;
+}
+
+.carousel-item-text{
+    font-size: 1.15rem;
+    margin: 40px 0 40px 0;
+    white-space: normal;
+    position: absolute;
+    z-index: 1;
+    color: white;
+    font-weight: 800;
+    font-family: var(--roboto-font);
+}
+
+.carousel-img-container{
+    height: 50%;
+    width: 100%;
+}
+
+.carousel-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-control{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.arrow-button{
+    border: none;
+    background: none;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.arrow-button.back{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    color: white;
+}
+
+.arrow-button.forward{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    color: white;
+}
+
+.carousel-indicator{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1;
+    position: absolute;
+    bottom: 5%;
+}
+
+.indicators{
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    background: none;
+}
+
+.indicators.active{
+    color: var(--primary-color);
+}
+
+.dot{
+    color: black
+}
+
+.dot.active{
+    color: white;
+}
+
+.left-pane-overlay{
+    position: absolute;
+    background-color: var(--primary-color);
+    height: 100%;
+    width: 100%;
+    opacity: 0.2;
+}
+
+.right-pane{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg);
+    font-family: var(--roboto-font);
+}
+
+.right-pane h3{
+    font-family: var(--roboto-font);
+}
+
+div.welcome{
+    margin-bottom: 80px;
+}
+
+.login{
+    width: 50%;
+}
+
+.username-container, .password-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 60px;
+}
+
+.login .username-container label, .login .password-container label{
+    color: var(--grey)
+}
+
+.username-container input, .password-container input{
+    border: none;
+    outline: none;
+    background: transparent;
+    border-bottom: 1px solid black;
+}
+
+.password-container{
+    margin-top: 20px;
+}
+
+.forgot-password{
+    float: right;
+    font-size: 14px;
+}
+
+.forgot-password a{
+    margin: 0;
+    color: #056FFF;
+}
+
+.sign-in{
+    margin-top: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signinButton{
+    background-color: var(--grey);
+    outline: none;
+    border: none;
+    border-radius: 40px;
+    padding: 10px;
+    color: white;
+    width: 50%;
+    font-family: var(--roboto-font);
+}
+
+.signinButton:hover{
+    cursor: pointer;
+}
+
+
+
