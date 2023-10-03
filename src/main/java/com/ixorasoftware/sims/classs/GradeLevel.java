@@ -29,12 +29,12 @@ public enum GradeLevel
             name = name.toUpperCase();
         return switch(name)
         {
-            case "JSS1", "Junior Secondary School 1" -> GradeLevel.JSS1;
-            case "JSS2", "Junior Secondary School 2" -> GradeLevel.JSS2;
-            case "JSS3", "Junior Secondary School 3" -> GradeLevel.JSS3;
-            case "SSS1", "Senior Secondary School 1" -> GradeLevel.SSS1;
-            case "SSS2", "Senior Secondary School 2" -> GradeLevel.SSS2;
-            case "SSS3", "Senior Secondary School 3" -> GradeLevel.SSS3;
+            case "JS1", "JSS1", "Junior Secondary School 1" -> GradeLevel.JSS1;
+            case "JS2", "JSS2", "Junior Secondary School 2" -> GradeLevel.JSS2;
+            case "JS3", "JSS3", "Junior Secondary School 3" -> GradeLevel.JSS3;
+            case "SS1", "SSS1", "Senior Secondary School 1" -> GradeLevel.SSS1;
+            case "SS2", "SSS2", "Senior Secondary School 2" -> GradeLevel.SSS2;
+            case "SS3", "SSS3", "Senior Secondary School 3" -> GradeLevel.SSS3;
             default -> throw new NoSuchElementException("GradeLevel %s does not exist".formatted(name));
         };
     }

@@ -1,6 +1,7 @@
 package com.ixorasoftware.sims.user;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,6 +23,7 @@ import java.util.stream.Collectors;
         )
     }
 )
+@Data
 public class User implements UserDetails
 {
     @Id
@@ -93,19 +95,9 @@ public class User implements UserDetails
         this.profileImageId = profileImageId;
     }
 
-    public Integer getId()
-    {
-        return id;
-    }
-
     public void setId(Integer id)
     {
         this.id = id;
-    }
-
-    public String getFirstName()
-    {
-        return firstName;
     }
 
     public void setFirstName(String firstName)
@@ -113,19 +105,9 @@ public class User implements UserDetails
         this.firstName = firstName;
     }
 
-    public String getMiddleName()
-    {
-        return middleName;
-    }
-
     public void setMiddleName(String middleName)
     {
         this.middleName = middleName;
-    }
-
-    public String getLastName()
-    {
-        return lastName;
     }
 
     public void setLastName(String lastName)
@@ -133,19 +115,9 @@ public class User implements UserDetails
         this.lastName = lastName;
     }
 
-    public Gender getGender()
-    {
-        return gender;
-    }
-
     public void setGender(Gender gender)
     {
         this.gender = gender;
-    }
-
-    public String getProfileImageId()
-    {
-        return profileImageId;
     }
 
     public void setProfileImageId(String profileImageId)

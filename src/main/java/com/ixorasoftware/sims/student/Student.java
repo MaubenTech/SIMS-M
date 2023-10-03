@@ -5,10 +5,12 @@ import com.ixorasoftware.sims.classs.GradeLevel;
 import com.ixorasoftware.sims.parent.Parent;
 import com.ixorasoftware.sims.user.User;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 @Entity
 @Data
+@Builder
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,6 +29,7 @@ public class Student {
     @Enumerated(EnumType.STRING)
     private StudentStatus status;
 
-    @Column(nullable = false)
+    @OneToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User userInfo;
 }

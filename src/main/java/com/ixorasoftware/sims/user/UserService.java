@@ -28,7 +28,7 @@ public class UserService
         this.userDTOMapper = userDTOMapper;
     }
 
-    public void addUser(UserRegistrationRequest userRegistrationRequest)
+    public User addUser(UserRegistrationRequest userRegistrationRequest)
     {
         if(userRepository.existsByUsername(userRegistrationRequest.username()))
             throw new DuplicateResourceException("User with username [%s] already exists".formatted(userRegistrationRequest.username()));
@@ -50,6 +50,7 @@ public class UserService
             );
 
         userRepository.save(user);
+        return user;
     }
 
     public UserDTO getUserByUsername(String username)

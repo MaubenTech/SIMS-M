@@ -21,5 +21,6 @@ public class Teacher
     private TeacherStatus status;
 
     @OneToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User userInfo;
 }
