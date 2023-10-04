@@ -11,8 +11,8 @@ public class ParentDTOMapper implements Function<Parent, ParentDTO> {
         return ParentDTO.builder()
                 .id(parent.getId())
                 .children(parent.getChildren().stream().map(Student::getId).toList())
-                .status(parent.getStatus().getName())
-                .userInfo(parent.getUserInfo().getId())
+                .status(parent.getStatus().name())
+                .userInfo(new UserDTOMapper().apply(parent.getUserInfo()))
                 .build();
     }
 }

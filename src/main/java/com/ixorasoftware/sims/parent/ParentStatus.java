@@ -4,7 +4,6 @@ import lombok.Getter;
 
 import java.util.NoSuchElementException;
 
-@Getter
 public enum ParentStatus
 {
     ACTIVE("A"), INACTIVE("I");
