@@ -161,7 +161,7 @@ export const Login = () => {
                   {errorMessage}
                 </p>
               </div>
-              <form className="login">
+              <form className="login" onSubmit={handleSubmit}>
                 <div className="username-container">
                   <label htmlFor="username">
                     Username
@@ -264,11 +264,12 @@ export const Login = () => {
                 Sign In
               </button> */}
                   {!validUserName || !validPassword ? (
-                    <button className="disableSigninButton">Sign in</button>
+                    <button className="disableSigninButton" disabled={true}>
+                      Sign in
+                    </button>
                   ) : (
                     <button
                       className="enabledSignIn"
-                      disabled={true}
                       onClick={() => console.log("clicked")}
                     >
                       Sign in
