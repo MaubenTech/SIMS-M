@@ -197,6 +197,13 @@ div.welcome{
     border-radius: 20px;
 }
 
+.errorMessage{
+    color: var(--red);
+    font-weight: bold;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
 .instructions{
     position: relative;
     font-size: 12px;
