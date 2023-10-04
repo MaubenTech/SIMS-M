@@ -22,9 +22,6 @@ export const Login = () => {
   const [password, setPassword] = useState("");
   const [validPassword, setValidPassword] = useState(false);
   const [passwordFocus, setPasswordFocus] = useState(false);
-  const [matchPassword, setMatchPassword] = useState("");
-  const [validMatch, setValidMatch] = useState(false);
-  const [matchFocus, setMatchFocus] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [enableButton, setEnableButton] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -76,6 +73,18 @@ export const Login = () => {
     setErrorMessage("");
   }, [username, password]);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (activeIndex === carouselItems.length - 1)
+        updateIndex(0);
+      else
+        updateIndex(activeIndex + 1);
+    }, 3000);
+    return () => {
+      clearInterval(interval);
+    }
+  }, [activeIndex, carouselItems.length, updateIndex])
+
   const handleSubmit = (event) => {
     console.log("function start");
     event.preventDefault();
@@ -109,7 +118,7 @@ export const Login = () => {
                   return <CarouselItem item={item} width={"100%"} />;
                 })}
               </div>
-              <div className="carousel-control">
+                <div className="carousel-control" >
                 <button
                   className="arrow-button back"
                   onClick={() => updateIndex(activeIndex - 1)}
