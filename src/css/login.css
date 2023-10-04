@@ -8,7 +8,8 @@
     --white: #fff;
     --grey: #B6B6B6;
     --blue: #056FFF;
-    --bg: #E2DEDE
+    --bg: #E2DEDE;
+    --red: #FF0000;
 }
 
 @font-face {
@@ -165,7 +166,7 @@ div.welcome{
     width: 50%;
 }
 
-.username-container, .password-container{
+.username-container, .password-container, .role-container{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -183,8 +184,47 @@ div.welcome{
     border-bottom: 1px solid black;
 }
 
-.password-container{
+.password-container, .role-container{
     margin-top: 20px;
+}
+
+.role-container{
+    margin-bottom: 20px;
+}
+
+.role-container select{
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.instructions{
+    position: relative;
+    font-size: 12px;
+    border-radius: 10px;
+    color: black;
+}
+
+.instructions > svg{
+    margin-right: 5px;
+}
+
+.offscreen{
+    position: absolute;
+    left: -9999px;
+}
+
+.hide{
+    display: none;
+}
+
+.valid{
+    color: limegreen;
+    margin-left: 5px;
+}
+
+.invalid{
+    color: var(--red);
+    margin-left: 5px;
 }
 
 .forgot-password{
@@ -204,7 +244,7 @@ div.welcome{
     justify-content: center;
 }
 
-.signinButton{
+.disableSigninButton{
     background-color: var(--grey);
     outline: none;
     border: none;
@@ -213,6 +253,19 @@ div.welcome{
     color: white;
     width: 50%;
     font-family: var(--roboto-font);
+    cursor: pointer;
+}
+
+.enabledSignIn{
+    background-color: var(--primary-color);
+    outline: none;
+    border: none;
+    border-radius: 40px;
+    padding: 10px;
+    color: white;
+    width: 50%;
+    font-family: var(--roboto-font);
+    cursor: pointer;
 }
 
 .signinButton:hover{
