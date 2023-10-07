@@ -13,10 +13,9 @@ import {
 } from '@react-navigation/native-stack/lib/typescript/src/types';
 import HomeScreen from './src/components/homeScreens/HomeScreen';
 
-const App = (): JSX.Element => {
+function App(): JSX.Element {
   const Stack = createNativeStackNavigator();
   // const naniga: NativeStackNavigationOptions;
-
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -26,43 +25,44 @@ const App = (): JSX.Element => {
           options={{
             animation: 'slide_from_right',
             headerShown: false,
-          }}
-        />
+          }} />
         <Stack.Screen
           name="SecondScreen"
           component={SecondScreen}
           options={{
             animation: 'slide_from_right',
             headerShown: false,
-          }}
-        />
+          }} />
         <Stack.Screen
           name="ThirdScreen"
           component={ThirdScreen}
           options={{
             animation: 'slide_from_right',
             headerShown: false,
-          }}
-        />
+          }} />
         <Stack.Screen
           name="LoginScreen"
           component={LoginScreen}
           options={{
             animation: 'slide_from_right',
             headerShown: false,
-          }}
-        />
+          }} />
         <Stack.Screen
           name="HomeScreen"
           component={HomeScreen}
           options={{
             animation: 'slide_from_right',
             headerShown: false,
-          }}
-        />
+          }} />
+        <Stack.Screen
+          name="StudentCourse"
+          component={StudentCourse}
+          options={{
+            animation: 'simple_push',
+          }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
-};
+}
 
 export default App;

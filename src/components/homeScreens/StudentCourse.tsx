@@ -7,7 +7,7 @@ import { faArrowRight, faAssistiveListeningSystems, faBell, faBookOpenReader, fa
 
 const { width, height } = Dimensions.get("window");
 
-const HomeScreen = ({navigation}: any): JSX.Element => {
+const StudentCourse = ({navigation}: any): JSX.Element => {
   return (
     <View>
       <View style={styles.welcome}>
@@ -287,4 +287,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default StudentCourse;
