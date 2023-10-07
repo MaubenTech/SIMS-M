@@ -12,6 +12,7 @@ import {
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack/lib/typescript/src/types';
 import HomeScreen from './src/components/homeScreens/HomeScreen';
+import StudentCourse from './src/components/homeScreens/StudentCourse';
 
 function App(): JSX.Element {
   const Stack = createNativeStackNavigator();

@@ -105,8 +105,6 @@ const LoginScreen = ({navigation}: {navigation: any}): JSX.Element => {
               />
             <FontAwesomeIcon icon={faEyeSlash} color="grey" size={25} style={{position: 'absolute', right: 10, top: 10}}/>
           </View>
-          
-
           <View style={styles.dropDownContainer}>
             <SelectList
               disabledItemStyles={styles.disabledDropdownItems}

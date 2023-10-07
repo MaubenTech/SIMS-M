@@ -85,7 +85,7 @@ const HomeScreen = ({navigation}: any): JSX.Element => {
           <FontAwesomeIcon icon={faBuildingColumns} size={20}/>
         </View>
         <View>
-          <Text style={styles.activitiesText}>Library           </Text>
+          <Text style={styles.activitiesText}>Library</Text>
         </View>
         <View style={styles.activitiesArrow}>
           <FontAwesomeIcon icon={faArrowRight} size={20}/>
