@@ -29,8 +29,9 @@ const HomeScreen = ({navigation}: any): JSX.Element => {
       </View>
       <View style={styles.course}>
         <Text style={{ color: 'black' }}>Courses</Text>
-        <TouchableOpacity>
-          {/* onPress={() => navigation.navigate('SecondScreen')}> */}
+        <TouchableOpacity
+        onPress={() => navigation.navigate('SecondScreen')}
+        >
            <Text style={{color: '#D6AB66'}}>View all</Text>
         </TouchableOpacity>
       </View>
