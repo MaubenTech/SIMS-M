@@ -44,6 +44,7 @@ const Dashboard = ({
             <box-icon name="chevron-down"></box-icon>
           </div>
         </div>
+        <div className="dashboard-"></div>
       </div>
     </>
   );

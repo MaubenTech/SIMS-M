@@ -6,6 +6,7 @@
     --roboto-font: 'Roboto', sans-serif;
     --primary-color: #DE9B3D;
     --white: #fff;
+    --grey: #B6B6B6;
 }
 
 @font-face {
@@ -20,6 +21,7 @@
     display: flex;
     height: 100vh;
     font-family: var(--roboto-font);
+    background-color: var(--grey)
 }
 
 .learning-content{
