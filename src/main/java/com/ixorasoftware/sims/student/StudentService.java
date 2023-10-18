@@ -5,18 +5,30 @@ import com.ixorasoftware.sims.parent.ParentService;
 import com.ixorasoftware.sims.user.User;
 import com.ixorasoftware.sims.user.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class StudentService
 {
     private final StudentRepository studentRepository;
-    private final StudentDTOMapper studentDTOMapper = new StudentDTOMapper();
+    private final StudentDTOMapper studentDTOMapper;
     private final UserService userService;
+
+    public StudentService(StudentRepository studentRepository,
+                          StudentDTOMapper studentDTOMapper,
+                          UserService userService,
+                          @Lazy ParentService parentService)
+    {
+        this.studentRepository = studentRepository;
+        this.studentDTOMapper = studentDTOMapper;
+        this.userService = userService;
+        this.parentService = parentService;
+    }
+
     private final ParentService parentService;
 
     public List<Student> getAllStudents()

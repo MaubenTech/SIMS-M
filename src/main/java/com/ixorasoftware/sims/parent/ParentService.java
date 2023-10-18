@@ -4,15 +4,25 @@ import com.ixorasoftware.sims.exception.ResourceNotFoundException;
 import com.ixorasoftware.sims.student.*;
 import com.ixorasoftware.sims.user.User;
 import com.ixorasoftware.sims.user.UserService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class ParentService
 {
+
+    public ParentService(ParentRepository parentRepository,
+                         UserService userService,
+                         @Lazy StudentService studentService,
+                         ParentDTOMapper parentDTOMapper)
+    {
+        this.parentRepository = parentRepository;
+        this.userService = userService;
+        this.studentService = studentService;
+        this.parentDTOMapper = parentDTOMapper;
+    }
 
     private final ParentRepository parentRepository;
     private final UserService userService;

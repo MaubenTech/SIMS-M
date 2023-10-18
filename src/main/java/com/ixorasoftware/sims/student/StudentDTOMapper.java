@@ -1,9 +1,11 @@
 package com.ixorasoftware.sims.student;
 
 import com.ixorasoftware.sims.user.UserDTOMapper;
+import org.springframework.stereotype.Service;
 
 import java.util.function.Function;
 
+@Service
 public class StudentDTOMapper implements Function<Student, StudentDTO>
 {
     @Override

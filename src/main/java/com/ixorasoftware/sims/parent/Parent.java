@@ -3,12 +3,16 @@ package com.ixorasoftware.sims.parent;
 import com.ixorasoftware.sims.student.Student;
 import com.ixorasoftware.sims.user.User;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Builder
 public class Parent {

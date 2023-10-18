@@ -5,10 +5,14 @@ import com.ixorasoftware.sims.classs.GradeLevel;
 import com.ixorasoftware.sims.parent.Parent;
 import com.ixorasoftware.sims.user.User;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Builder
 public class Student {
@@ -16,10 +20,12 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column
+    @JoinColumn
+    @ManyToOne
     private Parent parent1;
 
-    @Column
+    @JoinColumn
+    @ManyToOne
     private Parent parent2;
 
 //    @Column(nullable = false)
@@ -32,4 +38,5 @@ public class Student {
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User userInfo;
+
 }

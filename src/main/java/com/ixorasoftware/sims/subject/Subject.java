@@ -2,8 +2,10 @@ package com.ixorasoftware.sims.subject;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@NoArgsConstructor
 @Data
 public class Subject
 {

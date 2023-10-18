@@ -1,12 +1,14 @@
 package com.ixorasoftware.sims.classs;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 //@Entity
+@NoArgsConstructor
 @Data
 public class Classs
 {
-    private final GradeLevel gradeLevel;
+    private GradeLevel gradeLevel;
 
     private final String arm = "$";
 
