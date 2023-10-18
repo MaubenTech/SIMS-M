@@ -1,7 +1,5 @@
 package com.ixorasoftware.sims.student;
 
-import com.ixorasoftware.sims.classs.Classs;
-import com.ixorasoftware.sims.classs.GradeLevel;
 import com.ixorasoftware.sims.parent.Parent;
 import com.ixorasoftware.sims.user.User;
 import jakarta.persistence.*;
