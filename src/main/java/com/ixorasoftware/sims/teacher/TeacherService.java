@@ -1,7 +1,6 @@
 package com.ixorasoftware.sims.teacher;
 
 import com.ixorasoftware.sims.exception.ResourceNotFoundException;
-import com.ixorasoftware.sims.student.Student;
 import com.ixorasoftware.sims.user.User;
 import com.ixorasoftware.sims.user.UserService;
 import lombok.RequiredArgsConstructor;
@@ -32,20 +31,18 @@ public class TeacherService
         return teacherDTOMapper.apply(findTeacherById(id));
     }
 
-    public boolean addTeacher(TeacherRegistrationRequest teacherRegistrationRequest)
+    public TeacherDTO addTeacher(TeacherRegistrationRequest teacherRegistrationRequest)
     {
         User addedUser = userService.addUser(teacherRegistrationRequest.userDetails());
-
         if(addedUser != null)
         {
             Teacher teacher = Teacher.builder()
                     .status(TeacherStatus.WORKING)
                     .userInfo(addedUser)
                     .build();
-            teacherRepository.save(teacher);
-            return true;
+            return teacherDTOMapper.apply(teacherRepository.save(teacher));
         }
-        return false;
+        return null;
     }
 
     public TeacherDTO updateTeacher(Integer id, TeacherUpdateRequest updatedTeacher)

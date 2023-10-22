@@ -44,7 +44,7 @@ public class StudentService
         return studentDTOMapper.apply(findStudentById(id));
     }
 
-    public boolean addStudent(StudentRegistrationRequest studentRegistrationRequest)
+    public StudentDTO addStudent(StudentRegistrationRequest studentRegistrationRequest)
     {
         User addedUser = userService.addUser(studentRegistrationRequest.userDetails());
         if(addedUser != null)
@@ -55,10 +55,9 @@ public class StudentService
                     .status(StudentStatus.CURRENTLY_IN_SCHOOL)
                     .userInfo(addedUser)
                     .build();
-            studentRepository.save(student);
-            return true;
+            return studentDTOMapper.apply(studentRepository.save(student));
         }
-        return false;
+        return null;
     }
 
     public StudentDTO updateStudent(Integer id, StudentUpdateRequest updatedStudent)

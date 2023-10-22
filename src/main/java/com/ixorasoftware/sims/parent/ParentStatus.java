@@ -1,7 +1,5 @@
 package com.ixorasoftware.sims.parent;
 
-import lombok.Getter;
-
 import java.util.NoSuchElementException;
 
 public enum ParentStatus

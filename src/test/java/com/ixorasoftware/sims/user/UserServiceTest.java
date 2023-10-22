@@ -1,5 +1,6 @@
 package com.ixorasoftware.sims.user;
 
+import com.ixorasoftware.sims.user.*;
 import com.ixorasoftware.sims.exception.DuplicateResourceException;
 import com.ixorasoftware.sims.exception.ResourceNotFoundException;
 import jakarta.persistence.EntityNotFoundException;

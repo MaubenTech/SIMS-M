@@ -1,7 +1,8 @@
 package com.ixorasoftware.sims.parent;
 
+import com.ixorasoftware.sims.student.Student;
+import com.ixorasoftware.sims.student.StudentService;
 import com.ixorasoftware.sims.exception.ResourceNotFoundException;
-import com.ixorasoftware.sims.student.*;
 import com.ixorasoftware.sims.user.User;
 import com.ixorasoftware.sims.user.UserService;
 import org.springframework.context.annotation.Lazy;
@@ -44,7 +45,7 @@ public class ParentService
         return parentDTOMapper.apply(findParentById(id));
     }
 
-    public boolean addParent(ParentRegistrationRequest parentRegistrationRequest)
+    public ParentDTO addParent(ParentRegistrationRequest parentRegistrationRequest)
     {
         User addedUser = userService.addUser(parentRegistrationRequest.userDetails());
         if(addedUser != null)
@@ -52,10 +53,11 @@ public class ParentService
             Parent parent = Parent.builder()
                     .status(ParentStatus.ACTIVE)
                     .build();
-            parentRepository.save(parent);
-            return true;
+            return parentDTOMapper.apply(parentRepository.save(parent));
+            //TODO: Figure out a way to prevent the creation of an orphaned user entity, assuming the parent entity doesn't create...
+            // Basically rolling back the user entity creation when the parent entity creation fails.
         }
-        return false;
+        return null;
     }
 
     public ParentDTO updateParent(Integer id, ParentUpdateRequest updatedParent)

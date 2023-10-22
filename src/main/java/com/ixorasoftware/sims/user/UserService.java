@@ -49,8 +49,7 @@ public class UserService
             roles
             );
 
-        userRepository.save(user);
-        return user;
+        return userRepository.save(user);
     }
 
     public UserDTO getUserByUsername(String username)

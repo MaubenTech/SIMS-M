@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -26,5 +27,4 @@ public class Teacher
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User userInfo;
-
 }
