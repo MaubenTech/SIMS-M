@@ -1,283 +1,291 @@
-@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap");
 
 :root {
-    --cedar-font: 'Cedarville Cursive', cursive;
-    --site-color: #D39B3F;
-    --roboto-font: 'Roboto', sans-serif;
-    --primary-color: #DE9B3D;
-    --white: #fff;
-    --grey: #B6B6B6;
-    --blue: #056FFF;
-    --bg: #E2DEDE;
-    --red: #FF0000;
+  --cedar-font: "Cedarville Cursive", cursive;
+  --site-color: #d39b3f;
+  --roboto-font: "Roboto", sans-serif;
+  --primary-color: #de9b3d;
+  --primary-color-hover: #9e6c25;
+  --white: #fff;
+  --grey: #b6b6b6;
+  --blue: #056fff;
+  --bg: #e2dede;
+  --red: #ff0000;
 }
 
 @font-face {
-    font-family: 'Cedarville Cursive', cursive;
-    src: url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+  font-family: "Cedarville Cursive", cursive;
+  src: url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap");
 }
 
-
-.login-container{
-    width: 100%;
-    height: 100vh;
+.login-container {
+  width: 100%;
+  height: 100vh;
 }
 
-.login-form{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
+.login-form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
-.left-pane{
-    width: 50%;
-    background-color: var(--primary-color);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
+.left-pane {
+  width: 50%;
+  background-color: var(--primary-color);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
 }
 
-.left-pane-inner{
-    white-space: nowrap;
-    transition: transform 0.3s;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    /* z-index: 1; */
+.left-pane-inner {
+  white-space: nowrap;
+  transition: transform 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  /* z-index: 1; */
 }
 
-.carousel-item{
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    position: relative;
-    margin-bottom: 50%;
+.carousel-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  margin-bottom: 50%;
 }
 
-.carousel-item-text{
-    font-size: 1.15rem;
-    margin: 40px 0 40px 0;
-    white-space: normal;
-    position: absolute;
-    z-index: 1;
-    color: white;
-    font-weight: 800;
-    font-family: var(--roboto-font);
+.carousel-item-text {
+  font-size: 1.15rem;
+  margin: 40px 0 40px 0;
+  white-space: normal;
+  position: absolute;
+  z-index: 1;
+  color: white;
+  font-weight: 800;
+  font-family: var(--roboto-font);
 }
 
-.carousel-img-container{
-    height: 50%;
-    width: 100%;
+.carousel-img-container {
+  height: 50%;
+  width: 100%;
 }
 
-.carousel-img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.carousel-control{
-    display: flex;
-    justify-content: space-evenly;
+.carousel-control {
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.arrow-button{
-    border: none;
-    background: none;
-    cursor: pointer;
-    z-index: 1;
+.arrow-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  z-index: 1;
 }
 
-.arrow-button.back{
-    position: absolute;
-    top: 50%;
-    left: 0;
-    color: white;
+.arrow-button.back {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  color: white;
 }
 
-.arrow-button.forward{
-    position: absolute;
-    top: 50%;
-    right: 0;
-    color: white;
+.arrow-button.forward {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  color: white;
 }
 
-.carousel-indicator{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 1;
-    position: absolute;
-    bottom: 5%;
+.carousel-indicator {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1;
+  position: absolute;
+  bottom: 5%;
 }
 
-.indicators{
-    border: none;
-    cursor: pointer;
-    margin: 5px;
-    background: none;
+.indicators {
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+  background: none;
 }
 
-.indicators.active{
-    color: var(--primary-color);
+.indicators.active {
+  color: var(--primary-color);
 }
 
-.dot{
-    color: black
+.dot {
+  color: black;
 }
 
-.dot.active{
-    color: white;
+.dot.active {
+  color: white;
 }
 
-.left-pane-overlay{
-    position: absolute;
-    background-color: var(--primary-color);
-    height: 100%;
-    width: 100%;
-    opacity: 0.2;
+.left-pane-overlay {
+  position: absolute;
+  background-color: var(--primary-color);
+  height: 100%;
+  width: 100%;
+  opacity: 0.2;
 }
 
-.right-pane{
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--bg);
-    font-family: var(--roboto-font);
+.right-pane {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg);
+  font-family: var(--roboto-font);
 }
 
-.right-pane h3{
-    font-family: var(--roboto-font);
+.right-pane h3 {
+  font-family: var(--roboto-font);
 }
 
-div.welcome{
-    margin-bottom: 80px;
+div.welcome {
+  margin-bottom: 80px;
 }
 
-.login{
-    width: 50%;
+.login {
+  width: 50%;
 }
 
-.username-container, .password-container, .role-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 60px;
+.username-container,
+.password-container,
+.role-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 60px;
 }
 
-.login .username-container label, .login .password-container label{
-    color: var(--grey)
+.login .username-container label,
+.login .password-container label {
+  color: var(--grey);
 }
 
-.username-container input, .password-container input{
-    border: none;
-    outline: none;
-    background: transparent;
-    border-bottom: 1px solid black;
+.username-container input,
+.password-container input {
+  border: none;
+  outline: none;
+  background: transparent;
+  border-bottom: 1px solid black;
 }
 
-.password-container, .role-container{
-    margin-top: 20px;
+.password-container,
+.role-container {
+  margin-top: 20px;
 }
 
-.role-container{
-    margin-bottom: 20px;
+.role-container {
+  margin-bottom: 20px;
 }
 
-.role-container select{
-    padding: 10px;
-    border-radius: 20px;
+.role-container select {
+  padding: 10px;
+  border-radius: 20px;
 }
 
-.errorMessage{
-    color: var(--red);
-    font-weight: bold;
-    padding: 10px;
-    margin-bottom: 10px;
+.errorMessage {
+  color: var(--red);
+  font-weight: bold;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
-.instructions{
-    position: relative;
-    font-size: 12px;
-    border-radius: 10px;
-    color: black;
+.instructions {
+  position: relative;
+  font-size: 12px;
+  border-radius: 10px;
+  color: black;
 }
 
-.instructions > svg{
-    margin-right: 5px;
+.instructions > svg {
+  margin-right: 5px;
 }
 
-.offscreen{
-    position: absolute;
-    left: -9999px;
+.offscreen {
+  position: absolute;
+  left: -9999px;
 }
 
-.hide{
-    display: none;
+.hide {
+  display: none;
 }
 
-.valid{
-    color: limegreen;
-    margin-left: 5px;
+.valid {
+  color: limegreen;
+  margin-left: 5px;
 }
 
-.invalid{
-    color: var(--red);
-    margin-left: 5px;
+.invalid {
+  color: var(--red);
+  margin-left: 5px;
 }
 
-.forgot-password{
-    float: right;
-    font-size: 14px;
+.forgot-password {
+  float: right;
+  font-size: 14px;
 }
 
-.forgot-password a{
-    margin: 0;
-    color: #056FFF;
+.forgot-password a {
+  margin: 0;
+  color: #056fff;
 }
 
-.sign-in{
-    margin-top: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.sign-in {
+  margin-top: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.disableSigninButton{
-    background-color: var(--grey);
-    outline: none;
-    border: none;
-    border-radius: 40px;
-    padding: 10px;
-    color: white;
-    width: 50%;
-    font-family: var(--roboto-font);
-    cursor: pointer;
+.disableSigninButton {
+  background-color: var(--grey);
+  outline: none;
+  border: none;
+  border-radius: 40px;
+  padding: 10px;
+  color: white;
+  width: 50%;
+  font-family: var(--roboto-font);
+  cursor: pointer;
+  font-size: large;
 }
 
-.enabledSignIn{
-    background-color: var(--primary-color);
-    outline: none;
-    border: none;
-    border-radius: 40px;
-    padding: 10px;
-    color: white;
-    width: 50%;
-    font-family: var(--roboto-font);
-    cursor: pointer;
+.enabledSignIn {
+  background-color: var(--primary-color);
+  outline: none;
+  border: none;
+  border-radius: 40px;
+  padding: 10px;
+  color: white;
+  width: 50%;
+  font-family: var(--roboto-font);
+  cursor: pointer;
+  font-size: large;
 }
 
-.signinButton:hover{
-    cursor: pointer;
+.enabledSignIn:hover {
+  background-color: #9e6c25;
 }
 
-
-
+.signinButton:hover {
+  cursor: pointer;
+}

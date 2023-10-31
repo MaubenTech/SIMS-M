@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap");
+
+:root {
+  --cedar-font: "Cedarville Cursive", cursive;
+  --site-color: #dbb77d;
+  --roboto-font: "Roboto", sans-serif;
+  --primary-color: #de9b3d;
+  --white: #fff;
+  --grey: #b6b6b6;
+}
+
+@font-face {
+  font-family: "Cedarville Cursive", cursive;
+  src: url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap");
+}
+
+.sidebar-nav li {
+  position: relative;
+  width: 100%;
+  list-style-type: none;
+  height: 60px;
+  display: flex;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.sidebar-nav li:hover {
+  background-color: var(--grey);
+  cursor: pointer;
+}
+
+.sidebar-nav li a {
+  position: relative;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: var(--white);
+  align-items: center;
+}
+
+.sidebar-nav li a.active {
+  background-color: var(--grey);
+  color: var(--white);
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.sidebar-nav li:hover a {
+  color: var(--white);
+}
+
+.sidebar-nav li a .icon {
+  margin-right: 50px;
+  margin-left: 10px;
+}
+
+.sidebar-nav li:hover a::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px var(--grey);
+  pointer-events: none;
+}
+
+.sidebar-nav li a.active::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px var(--grey);
+  pointer-events: none;
+}
+
+.sidebar-nav li:hover a::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  bottom: -50px;
+  background-color: transparent;
+  border-radius: 50%;
+  right: 0;
+  box-shadow: 35px -35px 0 10px var(--grey);
+}
+
+.sidebar-nav li a.active::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  bottom: -50px;
+  background-color: transparent;
+  border-radius: 50%;
+  right: 0;
+  box-shadow: 35px -35px 0 10px var(--grey);
+}
+
+.db-bottom {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--roboto-font);
+  justify-content: center;
+}
+
+.theme-mode-container {
+  display: flex;
+  align-items: center;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  font-family: var(--roboto-font) !important;
+  position: relative;
+}
+
+.theme-mode-container:hover,
+.theme-mode-container > *:hover {
+  background-color: var(--grey);
+  cursor: pointer;
+}
+
+.theme-mode-container .icon {
+  margin-right: 50px;
+  margin-left: 10px;
+}
+
+.theme-mode-container:hover button::before {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  top: -50px;
+  right: 0;
+  box-shadow: 35px 35px 0 10px var(--grey);
+  pointer-events: none;
+}
+
+.theme-mode-container:hover button:after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  bottom: -50px;
+  background-color: transparent;
+  border-radius: 50%;
+  right: 0;
+  box-shadow: 35px -35px 0 10px var(--grey);
+}
+
+.theme-mode-container:hover button {
+  color: var(--white);
+}
+
+.switch-theme {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  height: 60px;
+  color: var(--white);
+  font-family: var(--roboto-font);
+}
+
+.log {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  position: relative;
+}
+
+.log .icon {
+  margin-right: 50px;
+  margin-left: 10px;
+}
+
+.log:hover {
+  background-color: var(--grey);
+  cursor: pointer;
+  color: var(--site-color);
+}
+
+.log-button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  height: 60px;
+  color: var(--white);
+  font-family: var(--roboto-font);
+}
+
+.log:hover button {
+  color: var(--white);
+}
+
+.log:hover button::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: -50px;
+  background-color: transparent;
+  border-radius: 50%;
+  right: 0;
+  box-shadow: 35px 35px 0 10px var(--grey);
+}
+
+.log:hover button::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  bottom: -50px;
+  background-color: transparent;
+  border-radius: 50%;
+  right: 0;
+  box-shadow: 35px -35px 0 10px var(--grey);
+}

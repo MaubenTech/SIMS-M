@@ -1,34 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap");
 
 :root {
-    --cedar-font: 'Cedarville Cursive', cursive;
-    --site-color: #D39B3F;
-    --roboto-font: 'Roboto', sans-serif;
-    --primary-color: #DE9B3D;
-    --white: #fff;
-    --grey: #B6B6B6;
+  --cedar-font: "Cedarville Cursive", cursive;
+  --site-color: #dbb77d;
+  --roboto-font: "Roboto", sans-serif;
+  --primary-color: #de9b3d;
+  --white: #fff;
+  --grey: #b6b6b6;
 }
 
 @font-face {
-    font-family: 'Cedarville Cursive', cursive;
-    src: url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+  font-family: "Cedarville Cursive", cursive;
+  src: url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap");
 }
-
 
 .container {
-    position: relative;
-    width: 100%;
-    display: flex;
-    height: 100vh;
-    font-family: var(--roboto-font);
-    background-color: var(--grey)
+  position: relative;
+  width: 100%;
+  display: flex;
+  height: 100vh;
+  font-family: var(--roboto-font);
+  background-color: var(--grey);
 }
 
-.learning-content{
-    width: calc(100% - 22%);
-    overflow: hidden;
+.sidebar-nav-container {
+  height: 100%;
+  width: 20%;
+  background-color: var(--primary-color);
+  overflow: hidden;
+  border-left: 20px solid var(--primary-color);
+  transition: 0.5s;
+  /* display: flex;
+    flex-direction: column; */
 }
 
-.learning-content.active{
-    width: calc(100% - 1%)
+.sidebar-nav-container.active {
+  width: 80px;
 }
+
+.sidebar-nav-container .logo {
+  margin-top: 10%;
+}
+
+.sidebar-nav-container .logo {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-nav-container .logo .icon {
+  margin-right: 50px;
+  margin-left: 10px;
+}
+
+.sidebar-nav {
+  width: 100%;
+  /* position: absolute; */
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 0;
+  height: 50%;
+  margin-top: 10%;
+}
+
+.learning-content {
+  width: calc(100% - 22%);
+  overflow: hidden;
+}
+
+.learning-content.active {
+  width: calc(100% - 1%);
+}
+

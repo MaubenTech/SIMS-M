@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap");
 
 :root {
-  --cedar-font: 'Cedarville Cursive', cursive;
-  --site-color: #D39B3F;
-  --roboto-font: 'Roboto', sans-serif;
+  --cedar-font: "Cedarville Cursive", cursive;
+  --site-color: #DBB77D;
+  --roboto-font: "Roboto", sans-serif;
 }
 
 @font-face {
-  font-family: 'Cedarville Cursive', cursive;
-  src: url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+  font-family: "Cedarville Cursive", cursive;
+  src: url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap");
 }
 
 body {
@@ -21,7 +21,7 @@ section {
   overflow: hidden;
   text-align: center;
   display: flex;
-  height: 80vh;
+  /* height: 80vh; */
 }
 
 .menu-container {
@@ -34,7 +34,7 @@ section {
   height: 10%;
   align-items: center;
   color: white;
-
+  background-color: black;
 }
 
 .menu {
@@ -45,7 +45,7 @@ section {
   list-style-type: none;
   display: flex;
   justify-content: space-around;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .main-menu li.active {
@@ -62,7 +62,6 @@ section {
   font-weight: bold;
 }
 
-
 .center-link {
   color: white;
   text-decoration: none;
@@ -75,7 +74,7 @@ section {
 
 .center-link:hover {
   background-color: black;
-  color: var(--site-color)
+  color: var(--site-color);
 }
 
 .header-video {
@@ -85,7 +84,6 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-
 }
 
 .video-overlay {
@@ -94,4 +92,124 @@ section {
   width: 100%;
   position: absolute;
   opacity: 0.7;
+}
+
+.hero {
+  background-color: #ebeef1;
+  height: 700px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.hero-title {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hero-title-container {
+  display: flex;
+  flex-direction: column;
+}
+.hero-h1 {
+  font-family: var(--roboto-font);
+  font-weight: 700;
+  font-size: 60px;
+  margin: 0;
+}
+
+.hero-h3 {
+  font-family: var(--roboto-font);
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.direct-user-container {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.direct-user-container a {
+  text-decoration: none;
+  font-family: var(--roboto-font);
+  padding: 15px 25px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.explore-courses {
+  border: 1px solid #7b70f3;
+  border-radius: 30px;
+  font-size: 20px;
+  background-color: #7b70f3;
+  color: white;
+}
+
+.explore-courses:hover{
+  color: black;
+  background-color: white;
+}
+
+.start-learning {
+  border: 3px solid var(--site-color);
+  border-radius: 30px;
+  color: var(--site-color);
+  display: flex;
+  align-items: center;
+}
+
+.start-learning:hover{
+  background-color: var(--site-color);
+  color: white;
+}
+
+.hero-colors {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+}
+
+.first-color {
+  height: 100%;
+  width: 50%;
+  position: relative;
+}
+
+.first-color::before {
+  content: "";
+  display: block;
+  background-color: #8f61ff;
+  height: 100%;
+  width: 90%;
+  transform: skewX(-20deg);
+  position: absolute;
+  right: -100%;
+}
+
+.second-color {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.second-color::before {
+  content: "";
+  display: block;
+  background-color: #2f2f55;
+  height: 100%;
+  width: 80%;
+  transform: skewX(-20deg);
+  position: absolute;
+  right: -25%;
+}
+
+.hero-img{
+  position: absolute;
+  right: 50%;
+  transform: translate(70%, 20%);
+  height: 600px;
 }
