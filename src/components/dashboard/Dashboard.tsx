@@ -31,9 +31,10 @@ const Dashboard = ({
 	isLearningContentActive: boolean;
 	setIsLearningContentActive: Dispatch<SetStateAction<boolean>>;
 }) => {
-	const [theme, toggleColorMode] = useMode();
+	const [theme, colorMode] = useMode();
 	const colors = tokens(theme.palette.mode);
-	const colorMode = useContext(ColorModeContext);
+	// const colorMode = useContext(ColorModeContext);
+
 	return (
 		<>
 			<div className="main">
@@ -70,7 +71,7 @@ const Dashboard = ({
 						<CustomizableBarChartContainer {...totalProfitGraphSetter} />
 					</div>
 				</div>
-				<div className="changeTheme">
+				{/* <div className="changeTheme" onClick={colorMode.toggleColorMode}>
 					{theme.palette.mode === "dark" ? (
 						<FontAwesomeIcon icon={faMoon} size="3x" />
 					) : (
@@ -78,7 +79,7 @@ const Dashboard = ({
 						// <FontAwesomeIcon icon={faMoon} size="3x" />
 						<FontAwesomeIcon icon={faSun} size="3x" />
 					)}
-				</div>
+				</div> */}
 			</div>
 		</>
 	);
