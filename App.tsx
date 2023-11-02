@@ -13,6 +13,7 @@ import {
 } from '@react-navigation/native-stack/lib/typescript/src/types';
 import HomeScreen from './src/components/homeScreens/HomeScreen';
 import StudentCourse from './src/components/homeScreens/StudentCourse';
+import TeacherDashboard from './src/components/teacherScreens/TeacherDashboard';
 
 function App(): JSX.Element {
   const Stack = createNativeStackNavigator();
@@ -60,6 +61,14 @@ function App(): JSX.Element {
           component={StudentCourse}
           options={{
             animation: 'simple_push',
+           headerShown: false,
+          }} />
+        <Stack.Screen
+          name="TeacherDashboard"
+          component={TeacherDashboard}
+          options={{
+            animation: 'slide_from_right',
+            headerShown: false,
           }} />
       </Stack.Navigator>
     </NavigationContainer>

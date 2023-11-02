@@ -1,26 +1,26 @@
-/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
-import React, {useEffect, useState} from 'react';
+/* eslint-disable react-native/no-inline-styles */
+import React, { useEffect, useState } from 'react';
 import {
-  Dimensions,
-  Image,
-  Easing,
+  // Dimensions,
+  // Image,
+  // Easing,
   TouchableOpacity,
   StyleSheet,
   Text,
   TextInput,
   View,
 } from 'react-native';
-import { blue } from 'react-native-reanimated';
-import {ParamListBase, useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {SelectList} from 'react-native-dropdown-select-list';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faEyeSlash, faImage, faTriangleExclamation} from '@fortawesome/free-solid-svg-icons';
+// import { blue } from 'react-native-reanimated';
+// import { ParamListBase, useNavigation } from '@react-navigation/native';
+// import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { SelectList } from 'react-native-dropdown-select-list';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faEyeSlash, faImage, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 
-const {width, height} = Dimensions.get('window');
+// const { width, height } = Dimensions.get('window');
 
-const LoginScreen = ({navigation}: {navigation: any}): JSX.Element => {
+const LoginScreen = ({ navigation }: { navigation: any }): JSX.Element => {
   const [category, setCategory] = React.useState('');
   // const categories = [
   //   { key: 'El', Value: 'Electronic' },
@@ -28,11 +28,11 @@ const LoginScreen = ({navigation}: {navigation: any}): JSX.Element => {
   //   { key: 'Ee', Value: 'Ele' },
   // ];
   const categories = [
-    {id: 1, value: 'Proprietor'},
-    {id: 2, value: 'Admin'},
-    {id: 3, value: 'Teacher'},
-    {id: 4, value: 'Student'},
-    {id: 5, value: 'Parent'},
+    { id: 1, value: 'Proprietor' },
+    { id: 2, value: 'Admin' },
+    { id: 3, value: 'Teacher' },
+    { id: 4, value: 'Student' },
+    { id: 5, value: 'Parent' },
   ];
 
   const [disabled, setDisabled] = useState(true);
@@ -43,7 +43,7 @@ const LoginScreen = ({navigation}: {navigation: any}): JSX.Element => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleContinueBtn = () => {
+  useEffect(() => {
     if (username.length > 3) console.log('Name is valid!');
     if (password.length > 3) console.log('Password is valid!');
     if (roleValid) console.log('Role is valid!');
@@ -52,28 +52,24 @@ const LoginScreen = ({navigation}: {navigation: any}): JSX.Element => {
       console.log('Everything is valid!');
       setDisabled(false);
     } else setDisabled(true);
-  };
-
-  useEffect(() => {
-    handleContinueBtn();
 
     if (displayError) {
       setUsername('');
       setPassword('');
     }
-  });
+  }, [username.length, password.length, roleValid, displayError]);
 
-  function login(): {ok: boolean; errorMessage?: string} {
+  function login(): { ok: boolean; errorMessage?: string } {
     if (username === 'King Rex' && password === 'King Shadow')
-      return {ok: true};
-    else return {ok: false, errorMessage: 'Please input the right information'};
+      return { ok: true };
+    else return { ok: false, errorMessage: 'Please input the right information' };
   }
 
   return (
     <View style={{ flex: 1 }}>
       <View style={styles.loginContainer}>
-         <View style={styles.header}>
-          <FontAwesomeIcon icon={faImage} size={40}/>
+        <View style={styles.header}>
+          <FontAwesomeIcon icon={faImage} size={40} />
         </View>
         <Text style={styles.login}>Log in</Text>
         <Text style={styles.loginText}>
@@ -93,17 +89,17 @@ const LoginScreen = ({navigation}: {navigation: any}): JSX.Element => {
 
           <View style={styles.pwFieldContainer}>
             <TextInput
-                style={styles.input}
-                secureTextEntry={true}
-                // maxLength={4}
-                placeholder={'Password'}
-                onChangeText={text => {
-                  setPassword(text);
-                  if (displayError) setDisplayError(false);
-                }}
-                value={password}
-              />
-            <FontAwesomeIcon icon={faEyeSlash} color="grey" size={25} style={{position: 'absolute', right: 10, top: 10}}/>
+              style={styles.input}
+              secureTextEntry={true}
+              // maxLength={4}
+              placeholder={'Password'}
+              onChangeText={text => {
+                setPassword(text);
+                if (displayError) setDisplayError(false);
+              }}
+              value={password}
+            />
+            <FontAwesomeIcon icon={faEyeSlash} color="grey" size={25} style={{ position: 'absolute', right: 10, top: 10 }} />
           </View>
           <View style={styles.dropDownContainer}>
             <SelectList
@@ -118,7 +114,7 @@ const LoginScreen = ({navigation}: {navigation: any}): JSX.Element => {
                 console.log('Selected!');
                 if (!roleValid) setRoleValid(true);
               }}
-              // defaultOption={{ id: 3, value: 'Student' }}
+            // defaultOption={{ id: 3, value: 'Student' }}
             />
           </View>
 
@@ -139,38 +135,55 @@ const LoginScreen = ({navigation}: {navigation: any}): JSX.Element => {
             style={[
               styles.input,
               styles.continueBtn,
-              {backgroundColor: disabled ? '#B6B6B6' : '#D39B3F'},
+              { backgroundColor: disabled ? '#B6B6B6' : '#D39B3F' },
             ]}
             onPress={() => {
-              const {ok, errorMessage} = login();
+              const { ok, errorMessage } = login();
               if (!ok) {
                 if (errorMessage) setMessage(errorMessage);
                 setDisplayError(true);
-              } else navigation.navigate('HomeScreen');
+              } else {
+                switch (category) {
+                  case "Proprietor":
+                  case "Admin":
+                  case "Teacher":
+                    navigation.navigate('TeacherDashboard');
+                    break;
+                  case "Student":
+                    navigation.navigate('HomeScreen');
+                    break;
+                  case "Parent":
+                    navigation.navigate('ParentDashboard');
+                    break;
+                  default:
+                    setMessage("Invalid role selected!");
+                    setDisplayError(true);
+                }
+              }
             }}>
             <Text
               style={[
                 styles.continueBtnText,
-                {color: disabled ? '#919191' : '#000'},
+                { color: disabled ? '#919191' : '#000' },
               ]}>
               Continue
             </Text>
           </TouchableOpacity>
           <View style={styles.forgotPWContainer}>
-              <Text style={styles.blueText}>Forgot Your Password? </Text>
+            <Text style={styles.blueText}>Forgot Your Password? </Text>
           </View>
           <View style={styles.termsContainer}>
-            <Text>By signing up, you agree and you accept our 
+            <Text>By signing up, you agree and you accept our
               <Text style={styles.blueText}> Terms</Text>
               <Text> &</Text>
             </Text>
             <View style={styles.policy}>
               <Text>
                 <Text style={styles.blueText}> Conditions</Text>
-                    <Text> and</Text>
+                <Text> and</Text>
                 <Text style={styles.blueText}> Privacy Policy</Text>
               </Text>
-              </View>
+            </View>
           </View>
         </View>
       </View>
@@ -256,7 +269,7 @@ const styles = StyleSheet.create({
   termsContainer: {
     alignItems: 'center',
   },
-  
+
   forgotPWContainer: {
     alignItems: 'center',
   },

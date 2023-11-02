@@ -30,7 +30,7 @@ const HomeScreen = ({navigation}: any): JSX.Element => {
       <View style={styles.course}>
         <Text style={{ color: 'black' }}>Courses</Text>
         <TouchableOpacity
-        onPress={() => navigation.navigate('SecondScreen')}
+        onPress={() => navigation.navigate('StudentCourse')}
         >
            <Text style={{color: '#D6AB66'}}>View all</Text>
         </TouchableOpacity>
@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
   },
   viewDetails: {
     flexDirection: 'row', 
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
   },
   chemistry: {
     borderRadius: 15,
