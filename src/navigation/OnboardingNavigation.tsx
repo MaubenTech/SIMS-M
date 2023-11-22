@@ -14,24 +14,24 @@ import ThirdScreen from "../components/onboardingScreens/ThirdScreen";
 import SecondScreen from "../components/onboardingScreens/SecondScreen";
 
 export type OnboardingStackParamList = {
-	FirstScreen: undefined;
-	SecondScreen: undefined;
-	ThirdScreen: undefined;
+  FirstScreen: undefined;
+  SecondScreen: undefined;
+  ThirdScreen: undefined;
 };
 
 const OnboardingNavigation = (): JSX.Element => {
-	const { Navigator, Group, Screen } = createNativeStackNavigator();
+  const { Navigator, Group, Screen } = createNativeStackNavigator();
 
-	return (
-		<Navigator
-			initialRouteName="OnboardingScreen"
-			screenOptions={{ headerShown: false }}
-		>
-			<Screen name="FirstScreen" component={FirstScreen} />
-			<Screen name="SecondScreen" component={SecondScreen} />
-			<Screen name="ThirdScreen" component={ThirdScreen} />
-		</Navigator>
-	);
+  return (
+    <Navigator
+      initialRouteName="OnboardingScreen"
+      screenOptions={{ headerShown: false }}
+    >
+      <Screen name="FirstScreen" component={FirstScreen} />
+      <Screen name="SecondScreen" component={SecondScreen} />
+      <Screen name="ThirdScreen" component={ThirdScreen} />
+    </Navigator>
+  );
 };
 
 export default OnboardingNavigation;

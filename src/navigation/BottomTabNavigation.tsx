@@ -14,14 +14,13 @@ import {
   faCircleUser as solidUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { faCircleUser as regularUser } from "@fortawesome/free-regular-svg-icons";
-import { gestureHandlerRootHOC } from "react-native-gesture-handler";
 import { ParamListBase, RouteProp } from "@react-navigation/native";
 import ProfileScreen from "../components/students/ProfileScreen";
 import GroupScreen from "../components/students/GroupScreen";
 
 type BottomTabParamList = {
   HomeScreen: undefined;
-  Profile: undefined;
+  ProfileScreen: undefined;
   Groups: undefined;
 };
 
@@ -35,7 +34,7 @@ type ProfileScreenComponentType<
     }>
   | React.ComponentType<{}>;
 
-type ProfileScreen = ProfileScreenComponentType<ParamListBase, "Profile">;
+type ProfileScreen = ProfileScreenComponentType<ParamListBase, "ProfileScreen">;
 
 type GroupScreenComponentType<
   ParamList extends ParamListBase,
@@ -114,7 +113,7 @@ const BottomTabNavigation = (): JSX.Element => {
       />
 
       <Screen
-        name="Profile"
+        name="ProfileScreen"
         component={profile}
         options={{
           tabBarIcon: (props: {

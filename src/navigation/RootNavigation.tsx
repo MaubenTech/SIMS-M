@@ -7,7 +7,7 @@
  */
 
 import React from "react";
-import { gestureHandlerRootHOC } from "react-native-gesture-handler";
+// import { gestureHandlerRootHOC } from "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import OnboardingNavigation from "./OnboardingNavigation";
