@@ -8,7 +8,6 @@ import {
 } from "react-native-heroicons/outline";
 import { BanknotesIcon as BanknotesIconActive } from "react-native-heroicons/solid";
 import { HomeIcon as HomeIconActive } from "react-native-heroicons/mini";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import {
   faArrowRightArrowLeft,
@@ -16,11 +15,46 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faCircleUser as regularUser } from "@fortawesome/free-regular-svg-icons";
 import { gestureHandlerRootHOC } from "react-native-gesture-handler";
+import { ParamListBase, RouteProp } from "@react-navigation/native";
+import ProfileScreen from "../components/students/ProfileScreen";
+import GroupScreen from "../components/students/GroupScreen";
+
+type BottomTabParamList = {
+  HomeScreen: undefined;
+  Profile: undefined;
+  Groups: undefined;
+};
+
+type ProfileScreenComponentType<
+  ParamList extends ParamListBase,
+  RouteName extends keyof ParamList
+> =
+  | React.ComponentType<{
+      route: RouteProp<ParamList, RouteName>;
+      navigation: any;
+    }>
+  | React.ComponentType<{}>;
+
+type ProfileScreen = ProfileScreenComponentType<ParamListBase, "Profile">;
+
+type GroupScreenComponentType<
+  ParamList extends ParamListBase,
+  RouteName extends keyof ParamList
+> =
+  | React.ComponentType<{
+      route: RouteProp<ParamList, RouteName>;
+      navigation: any;
+    }>
+  | React.ComponentType<{}>;
+
+type GroupScreen = GroupScreenComponentType<ParamListBase, "Group">;
 
 const BottomTabNavigation = (): JSX.Element => {
   const { Navigator, Screen } = createBottomTabNavigator();
 
-  const [profile, setProfile] = useState()<JSX.Element>;
+  const [profile, setProfile] = useState<ProfileScreen>(ProfileScreen);
+  const [groupScreen, setGroupScreen] = useState<GroupScreen>(GroupScreen);
+
   return (
     <Navigator
       initialRouteName="Home"
@@ -29,7 +63,7 @@ const BottomTabNavigation = (): JSX.Element => {
         // tabBarIconStyle: { backgroundColor: 'red' },
         tabBarLabelStyle: { fontSize: 13 },
         // tabBarBadge: 'Show!',
-        tabBarActiveTintColor: lightTheme.primary,
+        // tabBarActiveTintColor: lightTheme.primary,
         tabBarItemStyle: {
           paddingBottom: "2%",
           paddingTop: "2%",
@@ -37,7 +71,7 @@ const BottomTabNavigation = (): JSX.Element => {
         tabBarStyle: {
           // padding: '1%',
           height: "7%",
-          backgroundColor: lightTheme.background,
+          // backgroundColor: lightTheme.background,
           borderTopWidth: 0,
           // elevation: 0,
         },
@@ -63,7 +97,7 @@ const BottomTabNavigation = (): JSX.Element => {
       />
       <Screen
         name="Group"
-        component={GroupScreen}
+        component={groupScreen}
         options={{
           tabBarIcon: (props: {
             focused: boolean;
