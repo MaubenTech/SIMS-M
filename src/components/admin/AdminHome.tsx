@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const OwnerHome = () => {
+const AdminHome = () => {
 	return (
 		<View>
-			<Text>OwnerHome</Text>
+			<Text>AdminHome</Text>
 		</View>
 	);
 };
 
 const styles = StyleSheet.create({});
 
-export default OwnerHome;
+export default AdminHome;
