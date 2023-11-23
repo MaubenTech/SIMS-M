@@ -1,22 +1,17 @@
 import React, { useState } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../components/homeScreens/HomeScreen";
-import {
-  HomeIcon as HomeIconOutline,
-  BanknotesIcon as BanknotesIconOutline,
-  ArrowsRightLeftIcon,
-} from "react-native-heroicons/outline";
+import { HomeIcon as HomeIconOutline, BanknotesIcon as BanknotesIconOutline, ArrowsRightLeftIcon } from "react-native-heroicons/outline";
 import { BanknotesIcon as BanknotesIconActive } from "react-native-heroicons/solid";
 import { HomeIcon as HomeIconActive } from "react-native-heroicons/mini";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import {
-  faArrowRightArrowLeft,
-  faCircleUser as solidUser,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowRightArrowLeft, faCircleUser as solidUser } from "@fortawesome/free-solid-svg-icons";
 import { faCircleUser as regularUser } from "@fortawesome/free-regular-svg-icons";
 import { ParamListBase, RouteProp } from "@react-navigation/native";
 import ProfileScreen from "../components/students/ProfileScreen";
 import GroupScreen from "../components/students/GroupScreen";
+import HomePageWrapper from "../helpers/HomePageWrapper";
+import StudentHome from "../components/students/StudentHome";
 
 type BottomTabParamList = {
   HomeScreen: undefined;
@@ -24,10 +19,7 @@ type BottomTabParamList = {
   Groups: undefined;
 };
 
-type ProfileScreenComponentType<
-  ParamList extends ParamListBase,
-  RouteName extends keyof ParamList
-> =
+type ProfileScreenComponentType<ParamList extends ParamListBase, RouteName extends keyof ParamList> =
   | React.ComponentType<{
       route: RouteProp<ParamList, RouteName>;
       navigation: any;
@@ -36,10 +28,7 @@ type ProfileScreenComponentType<
 
 type ProfileScreen = ProfileScreenComponentType<ParamListBase, "ProfileScreen">;
 
-type GroupScreenComponentType<
-  ParamList extends ParamListBase,
-  RouteName extends keyof ParamList
-> =
+type GroupScreenComponentType<ParamList extends ParamListBase, RouteName extends keyof ParamList> =
   | React.ComponentType<{
       route: RouteProp<ParamList, RouteName>;
       navigation: any;
@@ -51,7 +40,7 @@ type GroupScreen = GroupScreenComponentType<ParamListBase, "Group">;
 const BottomTabNavigation = (): JSX.Element => {
   const { Navigator, Screen } = createBottomTabNavigator();
 
-  const [profile, setProfile] = useState<ProfileScreen>(ProfileScreen);
+  // const [profile, setProfile] = useState<ProfileScreen>(ProfileScreen);
   const [groupScreen, setGroupScreen] = useState<GroupScreen>(GroupScreen);
 
   return (
@@ -79,18 +68,10 @@ const BottomTabNavigation = (): JSX.Element => {
     >
       <Screen
         name="Home"
-        component={HomeScreen}
+        component={HomePageWrapper(StudentHome)}
         options={{
-          tabBarIcon: (props: {
-            focused: boolean;
-            color: string;
-            size: number;
-          }) => {
-            return props.focused ? (
-              <HomeIconActive {...props} />
-            ) : (
-              <HomeIconOutline {...props} />
-            );
+          tabBarIcon: (props: { focused: boolean; color: string; size: number }) => {
+            return props.focused ? <HomeIconActive {...props} /> : <HomeIconOutline {...props} />;
           },
         }}
       />
@@ -98,35 +79,18 @@ const BottomTabNavigation = (): JSX.Element => {
         name="Group"
         component={groupScreen}
         options={{
-          tabBarIcon: (props: {
-            focused: boolean;
-            color: string;
-            size: number;
-          }) => {
-            return props.focused ? (
-              <BanknotesIconActive {...props} />
-            ) : (
-              <BanknotesIconOutline {...props} />
-            );
+          tabBarIcon: (props: { focused: boolean; color: string; size: number }) => {
+            return props.focused ? <BanknotesIconActive {...props} /> : <BanknotesIconOutline {...props} />;
           },
         }}
       />
 
       <Screen
         name="ProfileScreen"
-        component={profile}
+        component={ProfileScreen}
         options={{
-          tabBarIcon: (props: {
-            focused: boolean;
-            color: string;
-            size: number;
-          }) => {
-            return (
-              <FontAwesomeIcon
-                icon={props.focused ? solidUser : regularUser}
-                {...props}
-              />
-            );
+          tabBarIcon: (props: { focused: boolean; color: string; size: number }) => {
+            return <FontAwesomeIcon icon={props.focused ? solidUser : regularUser} {...props} />;
           },
         }}
       />

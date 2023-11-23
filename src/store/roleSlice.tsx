@@ -2,17 +2,27 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 type RoleSliceType = {
   name: string;
-  initialState: { role: Role };
+  initialState: RoleSliceStateType;
   reducers: {};
 };
 
-type Role = "Teacher" | "Parent" | "Student" | "Admin" | "Owner" | "Principal";
+export type RoleSliceStateType = {
+  role: Role;
+};
+
+export type Role =
+  | "Teacher"
+  | "Parent"
+  | "Student"
+  | "Admin"
+  | "Owner"
+  | "Principal";
 
 const roleSliceObject: RoleSliceType = {
   name: "role",
   initialState: { role: "Student" },
   reducers: {
-    setRole(state: { role: Role }, action: { payload: Role }) {
+    setRole(state: RoleSliceStateType, action: { payload: Role }) {
       state.role = action.payload;
     },
   },
