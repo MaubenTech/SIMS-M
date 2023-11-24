@@ -89,7 +89,7 @@ const BottomTabNavigation = (): JSX.Element => {
 				}}
 			/> */}
 
-			{/* <Screen
+			<Screen
 				name="ProfileScreen"
 				component={ProfileScreen}
 				options={{
@@ -106,7 +106,7 @@ const BottomTabNavigation = (): JSX.Element => {
 						);
 					},
 				}}
-			/> */}
+			/>
 		</Navigator>
 	);
 };
