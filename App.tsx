@@ -2,9 +2,8 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import RootNavigation from "./src/navigation/RootNavigation";
-import { Provider, useDispatch, useSelector } from "react-redux";
-import { roleActions } from "./src/store/roleSlice";
-import store from "./src/store";
+import { Provider } from "react-redux";
+import store from "./src/redux";
 
 function App(): JSX.Element {
 	// const Stack = createNativeStackNavigator();

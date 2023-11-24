@@ -1,15 +1,5 @@
 import { configureStore, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-type RoleSliceType = {
-	name: string;
-	initialState: RoleSliceStateType;
-	reducers: {};
-};
-
-export type RoleSliceStateType = {
-	role: Role;
-};
-
 export type Role =
 	| "Teacher"
 	| "Parent"
