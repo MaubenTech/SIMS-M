@@ -1,14 +1,17 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import ParentContainer from "../../helpers/ParentContainer";
 
 const ParentChildPerformance = (): JSX.Element => {
 	return (
-		<View>
+		<ParentContainer containerStyle={styles.container}>
 			<Text>ParentChildPerformance</Text>
-		</View>
+		</ParentContainer>
 	);
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+	container: {},
+});
 
 export default ParentChildPerformance;
