@@ -1,6 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import roleSlice from "./roleSlice";
-import authSlice from "./authSlice";
+import roleSlice, { Role, RoleStateType } from "./roleSlice";
+import authSlice, { AuthStateType } from "./authSlice";
+
+export type ReduxStates = {
+	role: RoleStateType;
+	auth: AuthStateType;
+};
 
 const store = configureStore({
 	reducer: {

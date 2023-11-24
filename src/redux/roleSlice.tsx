@@ -1,4 +1,4 @@
-import { configureStore, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type Role =
 	| "Teacher"
@@ -9,19 +9,18 @@ export type Role =
 	| "Principal";
 
 export type RoleStateType = {
-	role: Role;
+	name: Role;
 };
 
-const initialState: RoleStateType = {
-	role: "Student",
-};
+const initialState: RoleStateType = { name: "Student" };
 
 const roleSlice = createSlice({
-	name: "role",
+	name: "roles",
 	initialState,
 	reducers: {
-		setRole(state, action: PayloadAction<Role>) {
-			state.role = action.payload;
+		setRole(state: RoleStateType, action: PayloadAction<Role>) {
+			console.log(`Action: ${JSON.stringify(action.payload)}`);
+			state.name = action.payload;
 		},
 	},
 });

@@ -6,10 +6,10 @@ import OwnerHome from "../owner/OwnerHome";
 import ParentHome from "../parents/ParentHome";
 import StudentHome from "../students/StudentHome";
 import TeacherHome from "../teachers/TeacherHome";
-import { RoleStateType } from "../../redux/roleSlice";
+import { ReduxStates } from "../../redux";
 
 const HomeScreenSwitch = () => {
-	const role = useSelector((state: RoleStateType) => state.role);
+	const role = useSelector((state: ReduxStates) => state.role.name);
 
 	let HomeScreen: React.ElementType = View;
 
