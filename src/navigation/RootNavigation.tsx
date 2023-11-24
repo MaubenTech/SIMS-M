@@ -12,6 +12,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import OnboardingNavigation from "./OnboardingNavigation";
 import LoginScreen from "../components/loginScreens/LoginScreen";
+import withHomePageWrapper from "../helpers/withHomePageWrapper";
+import HomeScreenSwitch from "../components/homeScreens/HomeScreenSwitch";
+import BottomTabNavigation from "./BottomTabNavigation";
 
 export type RootStackParamList = {
   OnboardingScreens: undefined;
@@ -22,20 +25,15 @@ const RootNavigation = (): JSX.Element => {
 
   return (
     <NavigationContainer>
-      <Navigator initialRouteName="OnboardingScreen">
+      <Navigator initialRouteName="BottomTabNavigation">
         <Group>
-          <Screen
-            name="LoginScreen"
-            component={LoginScreen}
-            options={{ headerShown: false }}
-          />
+          <Screen name="LoginScreen" component={LoginScreen} />
         </Group>
         <Group>
-          <Screen
-            name="OnboardingScreens"
-            component={OnboardingNavigation}
-            options={{ headerShown: false }}
-          />
+          <Screen name="OnboardingScreens" component={OnboardingNavigation} />
+        </Group>
+        <Group screenOptions={{ headerShown: false }}>
+          <Screen name="BottomTabNavigtion" component={BottomTabNavigation} />
         </Group>
       </Navigator>
     </NavigationContainer>

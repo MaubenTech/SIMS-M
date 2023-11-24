@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { roleActions } from "./src/store/roleSlice";
 
 function App(): JSX.Element {
-  const Stack = createNativeStackNavigator();
+  // const Stack = createNativeStackNavigator();
   // const naniga: NativeStackNavigationOptions;
 
   return <RootNavigation />;
