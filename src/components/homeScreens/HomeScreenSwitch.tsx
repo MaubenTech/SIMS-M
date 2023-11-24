@@ -1,15 +1,15 @@
 import { View, Text } from "react-native";
 import React from "react";
 import { useSelector } from "react-redux";
-import { RoleSliceStateType } from "../../store/roleSlice";
 import AdminHome from "../admin/AdminHome";
 import OwnerHome from "../owner/OwnerHome";
 import ParentHome from "../parents/ParentHome";
 import StudentHome from "../students/StudentHome";
 import TeacherHome from "../teachers/TeacherHome";
+import { RoleStateType } from "../../redux/roleSlice";
 
 const HomeScreenSwitch = () => {
-	const role = useSelector((state: RoleSliceStateType) => state.role);
+	const role = useSelector((state: RoleStateType) => state.role);
 
 	let HomeScreen: React.ElementType = View;
 
