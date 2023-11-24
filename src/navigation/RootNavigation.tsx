@@ -13,6 +13,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import OnboardingNavigation from "./OnboardingNavigation";
 import LoginScreen from "../components/loginScreens/LoginScreen";
 import BottomTabNavigation from "./BottomTabNavigation";
+import ParentChildPerformance from "../components/parents/ParentChildPerformance";
 
 export type RootStackParamList = {
 	BottomTabNavigation: undefined;
@@ -25,15 +26,21 @@ const RootNavigation = (): JSX.Element => {
 
 	return (
 		<NavigationContainer>
-			<Navigator initialRouteName="BottomTabNavigation">
+			<Navigator initialRouteName="ParentChildPerformance">
 				<Group screenOptions={{ headerShown: false }}>
 					<Screen name="LoginScreen" component={LoginScreen} />
 				</Group>
-				<Group>
+				<Group screenOptions={{ headerShown: false }}>
 					<Screen name="OnboardingScreens" component={OnboardingNavigation} />
 				</Group>
 				<Group screenOptions={{ headerShown: false }}>
-					<Screen name="BottomTabNavigtion" component={BottomTabNavigation} />
+					<Screen name="BottomTabNavigation" component={BottomTabNavigation} />
+				</Group>
+				<Group screenOptions={{ headerShown: false }}>
+					<Screen
+						name="ParentChildPerformance"
+						component={ParentChildPerformance}
+					/>
 				</Group>
 			</Navigator>
 		</NavigationContainer>
