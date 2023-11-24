@@ -1,12 +1,13 @@
 import { View, Text } from "react-native";
 import React from "react";
+import ParentContainer from "../../helpers/ParentContainer";
 
 const StudentHome = () => {
-  return (
-    <View>
-      <Text>Home</Text>
-    </View>
-  );
+	return (
+		<ParentContainer>
+			<Text>Home</Text>
+		</ParentContainer>
+	);
 };
 
 export default StudentHome;

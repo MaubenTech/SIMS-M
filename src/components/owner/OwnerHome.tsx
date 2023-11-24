@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import ParentContainer from "../../helpers/ParentContainer";
 
 const OwnerHome = () => {
 	return (
-		<View>
+		<ParentContainer>
 			<Text>OwnerHome</Text>
-		</View>
+		</ParentContainer>
 	);
 };
 
