@@ -2,14 +2,19 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import RootNavigation from "./src/navigation/RootNavigation";
-import { useDispatch, useSelector } from "react-redux";
+import { Provider, useDispatch, useSelector } from "react-redux";
 import { roleActions } from "./src/store/roleSlice";
+import store from "./src/store";
 
 function App(): JSX.Element {
 	// const Stack = createNativeStackNavigator();
 	// const naniga: NativeStackNavigationOptions;
 
-	return <RootNavigation />;
+	return (
+		<Provider store={store}>
+			<RootNavigation />
+		</Provider>
+	);
 
 	// return (
 	// 	<NavigationContainer>

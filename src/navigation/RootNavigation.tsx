@@ -17,27 +17,27 @@ import HomeScreenSwitch from "../components/homeScreens/HomeScreenSwitch";
 import BottomTabNavigation from "./BottomTabNavigation";
 
 export type RootStackParamList = {
-  OnboardingScreens: undefined;
+	OnboardingScreens: undefined;
 };
 
 const RootNavigation = (): JSX.Element => {
-  const { Navigator, Group, Screen } = createNativeStackNavigator();
+	const { Navigator, Group, Screen } = createNativeStackNavigator();
 
-  return (
-    <NavigationContainer>
-      <Navigator initialRouteName="BottomTabNavigation">
-        <Group>
-          <Screen name="LoginScreen" component={LoginScreen} />
-        </Group>
-        <Group>
-          <Screen name="OnboardingScreens" component={OnboardingNavigation} />
-        </Group>
-        <Group screenOptions={{ headerShown: false }}>
-          <Screen name="BottomTabNavigtion" component={BottomTabNavigation} />
-        </Group>
-      </Navigator>
-    </NavigationContainer>
-  );
+	return (
+		<NavigationContainer>
+			<Navigator initialRouteName="LoginScreen">
+				<Group>
+					<Screen name="LoginScreen" component={LoginScreen} />
+				</Group>
+				<Group>
+					<Screen name="OnboardingScreens" component={OnboardingNavigation} />
+				</Group>
+				<Group screenOptions={{ headerShown: false }}>
+					<Screen name="BottomTabNavigtion" component={BottomTabNavigation} />
+				</Group>
+			</Navigator>
+		</NavigationContainer>
+	);
 };
 
 export default RootNavigation;
