@@ -11,7 +11,7 @@ import { ReduxStates } from "../../redux";
 const HomeScreenSwitch = () => {
 	const role = useSelector((state: ReduxStates) => state.role.name);
 
-	let HomeScreen: React.ElementType = View;
+	let HomeScreen: React.ComponentType = View;
 
 	switch (role) {
 		case "Admin":

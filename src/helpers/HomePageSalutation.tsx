@@ -1,4 +1,11 @@
-import { Dimensions, Image, StyleSheet, View, Text } from "react-native";
+import {
+	Dimensions,
+	Image,
+	StyleSheet,
+	View,
+	Text,
+	TouchableWithoutFeedback,
+} from "react-native";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faBell } from "@fortawesome/free-regular-svg-icons";
@@ -14,7 +21,9 @@ const HomePageSalutation = () => {
 					Welcome,
 					<Text style={styles.subWelcomeText}> Jude Vale</Text>
 				</Text>
-				<FontAwesomeIcon icon={faBell} size={20} />
+				<TouchableWithoutFeedback>
+					<FontAwesomeIcon icon={faBell} size={20} />
+				</TouchableWithoutFeedback>
 			</View>
 			<View style={styles.header}>
 				<View style={styles.headerText}>

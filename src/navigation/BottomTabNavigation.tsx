@@ -18,9 +18,10 @@ import { ParamListBase, RouteProp } from "@react-navigation/native";
 import ProfileScreen from "../components/students/ProfileScreen";
 import GroupScreen from "../components/students/GroupScreen";
 import StudentHome from "../components/students/StudentHome";
-import withHomePageWrapper from "../helpers/withHomePageWrapper";
 import HomeScreenSwitch from "../components/homeScreens/HomeScreenSwitch";
 import HomePageSalutation from "../helpers/HomePageSalutation";
+import withAuth from "../components/hocs/withAuth";
+import withHomePageWrapper from "../components/hocs/withHomePageWrapper";
 
 type BottomTabParamList = {
 	HomeScreen: undefined;
@@ -30,7 +31,6 @@ type BottomTabParamList = {
 
 const BottomTabNavigation = (): JSX.Element => {
 	const { Navigator, Screen } = createBottomTabNavigator();
-
 	return (
 		<Navigator
 			initialRouteName="Home"
@@ -56,6 +56,7 @@ const BottomTabNavigation = (): JSX.Element => {
 		>
 			<Screen
 				name="Home"
+				// component={withAuth(withHomePageWrapper(HomeScreenSwitch))}
 				component={withHomePageWrapper(HomeScreenSwitch)}
 				options={{
 					tabBarIcon: (props: {

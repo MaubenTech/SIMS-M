@@ -23,6 +23,8 @@ import HostGameIcon from "../../../resources/images/host-game-icon.svg";
 import PTAForumIcon from "../../../resources/images/pta-forum-icon.svg";
 import { SvgProps } from "react-native-svg";
 import { ArrowRightIcon } from "react-native-heroicons/outline";
+import RootCustomNavigation from "../../navigation/custom_navigation";
+import { useNavigation } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get("window");
 
@@ -148,11 +150,17 @@ const FormClass = (): JSX.Element => {
 };
 
 const SubjectClass = (): JSX.Element => {
+	const navigation = useNavigation<RootCustomNavigation>();
 	return (
 		<View style={styles.entry}>
 			<View style={styles.entryTitleContainer}>
 				<Text style={styles.entryTitle}>Subject Class</Text>
-				<TouchableOpacity activeOpacity={0.6}>
+				<TouchableOpacity
+					activeOpacity={0.6}
+					onPress={() => {
+						navigation.navigate("TeacherSubjectClass");
+					}}
+				>
 					<Text style={styles.viewAllText}>View all</Text>
 				</TouchableOpacity>
 			</View>
@@ -201,7 +209,10 @@ const Activities = (): JSX.Element => {
 
 const TeacherHome = (): JSX.Element => {
 	return (
-		<ParentContainer addSidePadding>
+		<ParentContainer
+			addSidePadding
+			containerStyle={{ paddingTop: 0.01 * height }}
+		>
 			<View style={styles.entries}>
 				<View style={styles.entry}>
 					<Text style={styles.entryTitle}>Academic Session</Text>
