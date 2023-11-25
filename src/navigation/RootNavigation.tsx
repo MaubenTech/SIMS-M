@@ -26,6 +26,7 @@ export type RootStackParamList = {
 	ParentChildPerformance: undefined;
 	ParentProfile: undefined;
 	TeacherSubjectClass: undefined;
+	TeacherFormClass: undefined;
 };
 
 const RootNavigation = (): JSX.Element => {
