@@ -13,8 +13,7 @@ import { Circle, G, Svg } from "react-native-svg";
 import { faCircleArrowRight, faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import Animated, { useAnimatedProps, useAnimatedStyle, useSharedValue, withRepeat, withSequence, withTiming } from "react-native-reanimated";
-
-const { width, height } = Dimensions.get("window");
+import { width, height } from "../../helpers/dimensions";
 
 const FirstScreen = ({ navigation, onClick }: any): JSX.Element => {
   const radius = 28;

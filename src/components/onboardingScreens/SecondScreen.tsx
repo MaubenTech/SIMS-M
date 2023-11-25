@@ -18,8 +18,7 @@ import Animated, { runOnJS, useAnimatedProps, useAnimatedStyle, useSharedValue, 
 // import React, {useEffect}
 import { ParamListBase, useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-
-const { width, height } = Dimensions.get("window");
+import { width, height } from "../../helpers/dimensions";
 
 const SecondScreen = ({ navigation, onClick }: any): JSX.Element => {
   // const navigation = useNavigation();

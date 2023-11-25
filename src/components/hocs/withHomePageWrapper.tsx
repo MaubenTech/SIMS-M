@@ -5,10 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { roleActions } from "../../redux/roleSlice";
 import { ReduxStates } from "../../redux";
 import ParentContainer from "../../helpers/ParentContainer";
+import { height } from "../../helpers/dimensions";
 
 type HomePageWrapperProps = {};
-
-const { width, height } = Dimensions.get("window");
 
 const withHomePageWrapper = <P extends object>(
 	WrappedComponent: React.ComponentType<P & HomePageWrapperProps>

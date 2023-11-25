@@ -4,8 +4,7 @@ import {View, Text, StyleSheet, Image, Dimensions, TouchableOpacity} from 'react
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import { faArrowRight, faAssistiveListeningSystems, faBell, faBookOpenReader, faBuildingColumns, faCalculator, faChalkboardUser, faEyeSlash, faFileCircleCheck, faFileCircleQuestion, faFlask, faForward, faGamepad, faGaugeMed, faHome, faImage, faTriangleExclamation, faUser, faUsers } from '@fortawesome/free-solid-svg-icons';
-
-const { width, height } = Dimensions.get("window");
+import { width } from '../../helpers/dimensions';
 
 const HomeScreen = ({navigation}: any): JSX.Element => {
   return (

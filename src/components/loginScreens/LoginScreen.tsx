@@ -22,8 +22,6 @@ import {
 	faTriangleExclamation,
 } from "@fortawesome/free-solid-svg-icons";
 
-// const { width, height } = Dimensions.get('window');
-
 const LoginScreen = ({ navigation }: { navigation: any }): JSX.Element => {
 	const [category, setCategory] = React.useState("");
 	// const categories = [
