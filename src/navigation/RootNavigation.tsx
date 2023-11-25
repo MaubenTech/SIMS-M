@@ -21,6 +21,9 @@ export type RootStackParamList = {
 	BottomTabNavigation: undefined;
 	LoginScreen: undefined;
 	OnboardingScreens: undefined;
+	ParentChildPerformance: undefined;
+	ParentProfile: undefined;
+	TeacherSubjectClass: undefined;
 };
 
 const RootNavigation = (): JSX.Element => {
