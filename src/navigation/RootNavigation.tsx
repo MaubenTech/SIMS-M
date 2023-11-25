@@ -16,6 +16,7 @@ import BottomTabNavigation from "./BottomTabNavigation";
 import ParentChildPerformance from "../components/parents/ParentChildPerformance";
 import ParentProfile from "../components/parents/ParentProfile";
 import TeacherSubjectClass from "../components/teachers/TeacherSubjectClass";
+import ParentChildGrades from "../components/parents/ParentChildGrades";
 
 export type RootStackParamList = {
 	BottomTabNavigation: undefined;
@@ -31,7 +32,7 @@ const RootNavigation = (): JSX.Element => {
 
 	return (
 		<NavigationContainer>
-			<Navigator initialRouteName="BottomTabNavigation">
+			<Navigator initialRouteName="ParentChildGrades">
 				<Group screenOptions={{ headerShown: false }}>
 					<Screen name="LoginScreen" component={LoginScreen} />
 				</Group>
@@ -42,6 +43,7 @@ const RootNavigation = (): JSX.Element => {
 					<Screen name="BottomTabNavigation" component={BottomTabNavigation} />
 				</Group>
 				<Group screenOptions={{ headerShown: false }}>
+					<Screen name="ParentChildGrades" component={ParentChildGrades} />
 					<Screen
 						name="ParentChildPerformance"
 						component={ParentChildPerformance}
