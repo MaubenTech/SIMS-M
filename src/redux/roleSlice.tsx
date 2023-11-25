@@ -19,7 +19,7 @@ const roleSlice = createSlice({
 	initialState,
 	reducers: {
 		setRole(state: RoleStateType, action: PayloadAction<Role>) {
-			console.log(`Action: ${JSON.stringify(action.payload)}`);
+			// console.log(`Action: ${JSON.stringify(action.payload)}`);
 			state.name = action.payload;
 		},
 	},
