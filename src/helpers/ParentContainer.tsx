@@ -1,6 +1,7 @@
 import {
 	Dimensions,
 	ScrollView,
+	StatusBar,
 	StyleProp,
 	StyleSheet,
 	Text,
@@ -16,37 +17,45 @@ const ParentContainer = ({
 	containerStyle,
 	contentContainerStyle,
 	addSidePadding,
-	dontAddTopPadding,
+	addTopPadding,
+	scrollView,
 	children,
 }: {
 	containerStyle?: StyleProp<ViewStyle>;
 	contentContainerStyle?: StyleProp<ViewStyle>;
 	addSidePadding?: boolean;
-	dontAddTopPadding?: boolean;
+	addTopPadding?: boolean;
+	scrollView?: boolean;
 	children: JSX.Element | JSX.Element[] | null;
 }): JSX.Element => {
+	const viewStyles = [
+		styles.container,
+		addTopPadding && {
+			paddingTop: 0.03 * height,
+		},
+		containerStyle,
+		addSidePadding && {
+			paddingLeft: 0.04 * width,
+			paddingRight: 0.04 * width,
+		},
+	];
 	return (
-		<ScrollView
-			style={[
-				styles.container,
-				!dontAddTopPadding && {
-					paddingTop: 0.02 * height,
-				},
-				containerStyle,
-				addSidePadding && {
-					paddingLeft: 0.04 * width,
-					paddingRight: 0.04 * width,
-				},
-			]}
-			contentContainerStyle={[
-				contentContainerStyle,
-				{
-					paddingBottom: 0.015 * height,
-				},
-			]}
-		>
-			{children}
-		</ScrollView>
+		<>
+			<StatusBar
+				barStyle="dark-content"
+				backgroundColor={colors.backgroundColor}
+			/>
+			{!scrollView ? (
+				<View style={[viewStyles, containerStyle]}>{children}</View>
+			) : (
+				<ScrollView
+					style={[viewStyles, containerStyle]}
+					contentContainerStyle={contentContainerStyle}
+				>
+					{children}
+				</ScrollView>
+			)}
+		</>
 	);
 };
 
