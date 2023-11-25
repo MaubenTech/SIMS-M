@@ -1,12 +1,14 @@
 import { Dimensions, Image, StyleSheet, View } from "react-native";
 import React, { useEffect } from "react";
-import HomePageSalutation from "./HomePageSalutation";
+import HomePageSalutation from "../../helpers/HomePageSalutation";
 import { useDispatch, useSelector } from "react-redux";
-import { roleActions } from "../redux/roleSlice";
-import { ReduxStates } from "../redux";
-import ParentContainer from "./ParentContainer";
+import { roleActions } from "../../redux/roleSlice";
+import { ReduxStates } from "../../redux";
+import ParentContainer from "../../helpers/ParentContainer";
 
 type HomePageWrapperProps = {};
+
+const { width, height } = Dimensions.get("window");
 
 const withHomePageWrapper = <P extends object>(
 	WrappedComponent: React.ComponentType<P & HomePageWrapperProps>
@@ -17,7 +19,11 @@ const withHomePageWrapper = <P extends object>(
 	console.log(`${role}`);
 	const WithHomePageWrapper = (props: P) => {
 		return (
-			<ParentContainer>
+			<ParentContainer
+				addTopPadding
+				contentContainerStyle={{ paddingBottom: 0.04 * height }}
+				scrollView
+			>
 				{/* <WrappedComponent {...props} /> */}
 				<HomePageSalutation />
 				<WrappedComponent {...props} />
