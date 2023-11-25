@@ -1,25 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Role } from "./roleSlice";
-
-type Gender = "Male" | "Female";
+import { userActions, UserStateType } from "./userSlice";
+import { ReduxStates } from ".";
+import { useDispatch, useSelector } from "react-redux";
 
 export type AuthStateType = {
-	user:
-		| {
-				id: number;
-				firstName: string;
-				middleName?: string;
-				lastName: string;
-				gender: Gender;
-				username: string;
-				roles: Role[];
-		  }
-		| undefined;
 	isLoggedIn: boolean;
 };
 
 const initialState: AuthStateType = {
-	user: undefined,
 	isLoggedIn: false,
 };
 
@@ -31,23 +20,27 @@ const authSlice = createSlice({
 			state,
 			action: PayloadAction<{ username: string; password: string }>
 		) {
+			const dispatch = useDispatch();
 			const { username, password } = action.payload;
 			if (username === "King Rex" && password === "King Shadow") {
 				state.isLoggedIn = true;
-				state.user = {
-					id: 1,
-					firstName: "King",
-					lastName: "Rex",
-					gender: "Male",
-					username: "KingShadow333",
-					roles: ["Owner", "Principal"],
-				};
+				dispatch(
+					userActions.setUser({
+						id: 1,
+						firstName: "King",
+						lastName: "Rex",
+						gender: "Male",
+						username: "KingShadow333",
+						roles: ["Owner", "Principal"],
+					})
+				);
 			} else {
 			}
 		},
 		logout(state) {
+			const dispatch = useDispatch();
 			state.isLoggedIn = false;
-			state.user = undefined;
+			dispatch(userActions.setUser(null));
 		},
 	},
 });
