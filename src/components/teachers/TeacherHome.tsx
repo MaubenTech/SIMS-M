@@ -25,76 +25,14 @@ import { SvgProps } from "react-native-svg";
 import { ArrowRightIcon } from "react-native-heroicons/outline";
 import RootCustomNavigation from "../../navigation/custom_navigation";
 import { useNavigation } from "@react-navigation/native";
-
-const { width, height } = Dimensions.get("window");
-
-const EntryButton = ({
-	bgColor,
-	iconSvg: IconSvg,
-	iconColor,
-	title,
-	titleColor,
-	arrowText,
-	arrowTextColor,
-	arrowColor,
-}: {
-	bgColor?: ColorValue;
-	iconSvg?: React.FC<SvgProps>;
-	iconColor?: ColorValue;
-	title: string;
-	titleColor?: ColorValue;
-	arrowText?: string;
-	arrowTextColor?: ColorValue;
-	arrowColor?: ColorValue;
-	onPress?: () => void;
-}) => {
-	return (
-		<TouchableOpacity
-			style={[styles.entryButton, { backgroundColor: bgColor }]}
-			activeOpacity={0.7}
-		>
-			<View style={styles.entryButtonTitleContainer}>
-				{IconSvg && (
-					<IconSvg
-						style={
-							{
-								color: iconColor ? iconColor : colors.softDark,
-							} as StyleProp<ViewStyle>
-						}
-					/>
-				)}
-				<Text
-					style={[
-						styles.entryButtonTitle,
-						{ color: titleColor ? titleColor : colors.softDark },
-					]}
-				>
-					{title}
-				</Text>
-			</View>
-			<View style={styles.entryButtonTextContainer}>
-				<Text
-					style={[
-						styles.entryButtonText,
-						{ color: arrowTextColor ? arrowTextColor : colors.softDark },
-					]}
-				>
-					{arrowText ? arrowText : "View details"}
-				</Text>
-				<ArrowRightIcon
-					size={15}
-					color={
-						arrowColor
-							? arrowColor
-							: arrowTextColor
-							? arrowTextColor
-							: colors.softDark
-					}
-				/>
-			</View>
-		</TouchableOpacity>
-	);
-};
+import {
+	ButtonDetail,
+	TeacherClassPreviews,
+	types,
+} from "./TeacherClassButtons";
+import { subjectClassDetails } from "./TeacherSubjectClass";
+import { width, height } from "../../helpers/dimensions";
+import { formClassDetails } from "./TeacherFormClass";
 
 const ActivityButton = ({
 	text,
@@ -108,7 +46,11 @@ const ActivityButton = ({
 			style={[styles.activityButton, { backgroundColor: colors.softLight }]}
 			activeOpacity={0.7}
 		>
-			<View style={styles.activityButtonImage}>{IconSvg && <IconSvg />}</View>
+			<View style={styles.activityButtonImage}>
+				{IconSvg && (
+					<IconSvg style={{ color: colors.softDark } as StyleProp<ViewStyle>} />
+				)}
+			</View>
 			<Text style={styles.activityText}>{text}</Text>
 			<View style={styles.activityIcon}>
 				<ArrowRightIcon size={22} color={"#000"} />
@@ -118,33 +60,19 @@ const ActivityButton = ({
 };
 
 const FormClass = (): JSX.Element => {
+	const navigation = useNavigation<RootCustomNavigation>();
 	return (
 		<View style={styles.entry}>
 			<View style={styles.entryTitleContainer}>
 				<Text style={styles.entryTitle}>Form Class (Jss3)</Text>
-				<TouchableOpacity activeOpacity={0.6}>
+				<TouchableOpacity
+					activeOpacity={0.6}
+					onPress={() => navigation.navigate("TeacherFormClass")}
+				>
 					<Text style={styles.viewAllText}>View all</Text>
 				</TouchableOpacity>
 			</View>
-			<View style={styles.entryButtonsContainer}>
-				<EntryButton
-					bgColor={colors.softLight}
-					title="Timetable"
-					iconSvg={TimetableIcon}
-				/>
-				<EntryButton
-					bgColor={colors.softDark}
-					title="Students Info"
-					iconSvg={StudentsInfoIcon}
-					titleColor={colors.softLight}
-					arrowTextColor={colors.softLight}
-				/>
-				<EntryButton
-					bgColor={colors.softLight}
-					title="Attendance"
-					iconSvg={AttendanceIcon}
-				/>
-			</View>
+			<TeacherClassPreviews details={formClassDetails} />
 		</View>
 	);
 };
@@ -164,28 +92,10 @@ const SubjectClass = (): JSX.Element => {
 					<Text style={styles.viewAllText}>View all</Text>
 				</TouchableOpacity>
 			</View>
-			<View style={styles.entryButtonsContainer}>
-				<EntryButton
-					bgColor={colors.softLight}
-					title="English"
-					iconSvg={EnglishIcon}
-				/>
-				<EntryButton
-					bgColor="#F5E0C3"
-					title="English"
-					iconSvg={EnglishIcon}
-					iconColor="#B27C31"
-					titleColor="#B27C31"
-					arrowTextColor="#B27C31"
-				/>
-				<EntryButton
-					bgColor="#B6B6B6"
-					iconSvg={LiteratureIcon}
-					title="Literature"
-					titleColor="#555555"
-					arrowTextColor="#555555"
-				/>
-			</View>
+			<TeacherClassPreviews
+				details={subjectClassDetails}
+				detailText={[...subjectClassDetails.map((value) => `(${value.class})`)]}
+			/>
 		</View>
 	);
 };
