@@ -18,15 +18,17 @@ import ParentProfile from "../components/parents/ParentProfile";
 import TeacherSubjectClass from "../components/teachers/TeacherSubjectClass";
 import ParentChildGrades from "../components/parents/ParentChildGrades";
 import TeacherFormClass from "../components/teachers/TeacherFormClass";
+import ClassTimetable from "../components/teachers/ClassTimetable";
 
 export type RootStackParamList = {
 	BottomTabNavigation: undefined;
+	ClassTimetable: undefined;
 	LoginScreen: undefined;
 	OnboardingScreens: undefined;
 	ParentChildPerformance: undefined;
 	ParentProfile: undefined;
-	TeacherSubjectClass: undefined;
 	TeacherFormClass: undefined;
+	TeacherSubjectClass: undefined;
 };
 
 const RootNavigation = (): JSX.Element => {
@@ -53,6 +55,7 @@ const RootNavigation = (): JSX.Element => {
 					<Screen name="ParentProfile" component={ParentProfile} />
 				</Group>
 				<Group screenOptions={{ headerShown: false }}>
+					<Screen name="ClassTimetable" component={ClassTimetable} />
 					<Screen name="TeacherFormClass" component={TeacherFormClass} />
 					<Screen name="TeacherSubjectClass" component={TeacherSubjectClass} />
 				</Group>
