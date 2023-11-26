@@ -33,6 +33,8 @@ import {
 import { subjectClassDetails } from "./TeacherSubjectClass";
 import { width, height } from "../../helpers/dimensions";
 import { formClassDetails } from "./TeacherFormClass";
+import { useSelector } from "react-redux";
+import { ReduxStates } from "../../redux";
 
 const ActivityButton = ({
 	text,
@@ -72,7 +74,10 @@ const FormClass = (): JSX.Element => {
 					<Text style={styles.viewAllText}>View all</Text>
 				</TouchableOpacity>
 			</View>
-			<TeacherClassPreviews details={formClassDetails} />
+			<TeacherClassPreviews
+				details={formClassDetails}
+				typeIndices={[0, 3, 0, 3]}
+			/>
 		</View>
 	);
 };
@@ -118,6 +123,9 @@ const Activities = (): JSX.Element => {
 };
 
 const TeacherHome = (): JSX.Element => {
+	const selectedSessionName = useSelector(
+		(state: ReduxStates) => state.schoolSession.selectedSession.name
+	);
 	return (
 		<ParentContainer
 			addSidePadding
@@ -126,7 +134,9 @@ const TeacherHome = (): JSX.Element => {
 			<View style={styles.entries}>
 				<View style={styles.entry}>
 					<Text style={styles.entryTitle}>Academic Session</Text>
-					<View style={styles.entryView}></View>
+					<View style={styles.entryView}>
+						<Text style={styles.sessionText}>{selectedSessionName}</Text>
+					</View>
 				</View>
 				<FormClass />
 				<SubjectClass />
@@ -158,6 +168,10 @@ const styles = StyleSheet.create({
 		borderRadius: 40,
 		borderWidth: 1,
 		borderColor: "#D0D0D0",
+	},
+	sessionText: {
+		fontSize: 20,
+		color: colors.softDark,
 	},
 	entryTitleContainer: {
 		flexDirection: "row",

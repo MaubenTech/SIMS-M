@@ -21,17 +21,21 @@ import StudentInformationIcon from "../../../resources/images/students-info-icon
 import AttendanceIcon from "../../../resources/images/attendance-icon.svg";
 import AcademicResultIcon from "../../../resources/images/academic-result-icon.svg";
 import TeacherClassButtons from "./TeacherClassButtons";
+import { useNavigation } from "@react-navigation/native";
+import RootCustomNavigation from "../../navigation/custom_navigation";
 
 const timetable: ButtonDetail = {
 	title: "Timetable",
 	description: "Timetable of subjects/courses taken",
 	titleIcon: TimetableIcon,
+	navigate: "ClassTimetable",
 };
 
 const studentsInformation: ButtonDetail = {
 	title: "Students information",
 	description: "Information of each student in class",
 	titleIcon: StudentInformationIcon,
+	navigate: "FormClassStudentsInformation",
 };
 
 const attendance: ButtonDetail = {
@@ -52,79 +56,6 @@ export const formClassDetails: ButtonDetail[] = [
 	attendance,
 	academicResult,
 ];
-
-const FormClass = ({
-	details,
-	typeIndex,
-}: {
-	details: ButtonDetail;
-	typeIndex: number;
-}): JSX.Element => {
-	const Icon = details.titleIcon;
-	return (
-		<View
-			style={[
-				styles.subjectClass,
-				{
-					backgroundColor: types[typeIndex].backgroundColor,
-				},
-			]}
-		>
-			<View style={styles.subjectClassTitleContainer}>
-				<Icon
-					style={
-						{
-							color: types[typeIndex].titleColor,
-						} as StyleProp<ViewStyle>
-					}
-				/>
-				<Text
-					style={[
-						styles.subjectClassTitle,
-						{ color: types[typeIndex].titleColor },
-					]}
-				>
-					{details.title}
-				</Text>
-			</View>
-			<View style={styles.subjectClassContent}>
-				<Text
-					style={[
-						styles.subjectClassContentText,
-						{ color: types[typeIndex].contentColor },
-					]}
-				>
-					{details.description}
-				</Text>
-				<TouchableOpacity
-					activeOpacity={0.6}
-					style={styles.viewDetailsContainer}
-				>
-					<Text
-						style={[
-							styles.viewDetailsText,
-							{ color: types[typeIndex].detailsColor },
-						]}
-					>
-						View details
-					</Text>
-
-					<ArrowRightIcon size={18} color={types[typeIndex].detailsColor} />
-				</TouchableOpacity>
-			</View>
-		</View>
-	);
-};
-
-const FormClasses = (): JSX.Element => {
-	return (
-		<View style={styles.subjectClassContainer}>
-			{formClassDetails.map((value, _) => (
-				<FormClass key={_} details={value} typeIndex={_ % 2 === 0 ? 0 : 3} />
-			))}
-		</View>
-	);
-};
 
 const TeacherFormClass = (): JSX.Element => {
 	return (
