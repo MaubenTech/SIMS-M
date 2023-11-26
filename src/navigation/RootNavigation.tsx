@@ -19,10 +19,12 @@ import TeacherSubjectClass from "../components/teachers/TeacherSubjectClass";
 import ParentChildGrades from "../components/parents/ParentChildGrades";
 import TeacherFormClass from "../components/teachers/TeacherFormClass";
 import ClassTimetable from "../components/teachers/ClassTimetable";
+import FormClassStudentsInformation from "../components/teachers/FormClassStudentsInformation";
 
 export type RootStackParamList = {
 	BottomTabNavigation: undefined;
 	ClassTimetable: undefined;
+	FormClassStudentsInformation: undefined;
 	LoginScreen: undefined;
 	OnboardingScreens: undefined;
 	ParentChildPerformance: undefined;
@@ -56,6 +58,10 @@ const RootNavigation = (): JSX.Element => {
 				</Group>
 				<Group screenOptions={{ headerShown: false }}>
 					<Screen name="ClassTimetable" component={ClassTimetable} />
+					<Screen
+						name="FormClassStudentsInformation"
+						component={FormClassStudentsInformation}
+					/>
 					<Screen name="TeacherFormClass" component={TeacherFormClass} />
 					<Screen name="TeacherSubjectClass" component={TeacherSubjectClass} />
 				</Group>
