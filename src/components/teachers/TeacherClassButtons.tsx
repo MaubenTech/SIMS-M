@@ -18,11 +18,14 @@ import colors from "../../helpers/colors";
 import { ArrowRightIcon } from "react-native-heroicons/outline";
 import { useNavigation } from "@react-navigation/native";
 import RootCustomNavigation from "../../navigation/custom_navigation";
+import { RootStackParamList } from "../../navigation/RootNavigation";
 
 export type ButtonDetail = {
 	title: string;
 	description: string;
 	titleIcon: React.FC<SvgProps>;
+	onButtonClick?: () => void;
+	navigate?: keyof RootStackParamList;
 };
 
 const type1 = {
@@ -60,6 +63,7 @@ const ClassPreview = ({
 	typeIndex: number;
 	detailText?: string;
 }): JSX.Element => {
+	const navigation = useNavigation<RootCustomNavigation>();
 	const IconSvg = buttonDetail.titleIcon;
 	return (
 		<TouchableOpacity
@@ -68,6 +72,11 @@ const ClassPreview = ({
 				{ backgroundColor: types[typeIndex].backgroundColor },
 			]}
 			activeOpacity={0.7}
+			onPress={() => {
+				const { onButtonClick, navigate } = buttonDetail;
+				onButtonClick && onButtonClick();
+				navigate && navigation.navigate(navigate);
+			}}
 		>
 			<View style={styles.entryButtonTitleContainer}>
 				{
@@ -137,6 +146,7 @@ const ClassButton = ({
 	details: ButtonDetail;
 	typeIndex: number;
 }): JSX.Element => {
+	const navigation = useNavigation<RootCustomNavigation>();
 	const Icon = details.titleIcon;
 	return (
 		<View
@@ -177,6 +187,11 @@ const ClassButton = ({
 				<TouchableOpacity
 					activeOpacity={0.6}
 					style={styles.viewDetailsContainer}
+					onPress={() => {
+						const { onButtonClick, navigate } = details;
+						onButtonClick && onButtonClick();
+						navigate && navigation.navigate(navigate);
+					}}
 				>
 					<Text
 						style={[
