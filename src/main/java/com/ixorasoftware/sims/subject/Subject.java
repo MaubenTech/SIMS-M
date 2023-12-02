@@ -14,6 +14,9 @@ public class Subject
     private Integer id;
 
     @Column(nullable = false)
+    private String shortName;
+
+    @Column(nullable = false)
     private String name;
 
     @Column
