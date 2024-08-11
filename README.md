@@ -9,7 +9,7 @@ Web API that enables adminstrators, teachers, parents and students to efficientl
 Clone the project
 
 ```bash
-  git clone https://github.com/debbyodungweru/sims.git
+  https://github.com/MaubenTech/SIMS-M.git
 ```
 
 Create a Postgres database called 'sims'
