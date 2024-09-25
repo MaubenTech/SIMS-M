@@ -12,7 +12,8 @@ import {
 	RouterProvider,
 } from "react-router-dom";
 import Container from "./components/Container";
-import { Login } from "./components/Login";
+import  Login  from "./pages/Login";
+import SignedOutPage from "./pages/SignedOutPage";
 
 const router = createBrowserRouter([
 	{
@@ -26,6 +27,14 @@ const router = createBrowserRouter([
 	{
 		path: "/learning-center/dashboard",
 		element: <Container />,
+	},
+	{
+		path: "/SignedOutPage",
+		element: <SignedOutPage />,
+	},
+	{
+		path: "/Logout",
+		element: <SignedOutPage />,
 	},
 ]);
 

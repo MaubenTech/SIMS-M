@@ -1,0 +1,112 @@
+html, body{
+    background-color: rgb(244, 241, 241);
+}
+
+section{
+    width: 100%;
+    height: 95vh;
+    justify-content: space-around;
+}
+#checkbtn{
+    font-size: 4rem;
+}
+.center{
+    display: flex;
+}
+
+.btn{
+    background-color: #0B7AB9; 
+    padding: 7px 200px;
+    border: 1px solid #0B7AB9;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    appearance: button;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+form{
+    margin-top: auto;
+    margin-bottom: auto ;
+    margin-left: 120px;
+}
+input, select{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-family: inherit;
+}
+.form-group>span{
+    color:#292929;
+    margin-left: 0px;
+}
+.form-group{
+    text-align: left;
+    margin-bottom: 20px;
+}
+.form-control{
+    margin-top: 7px
+}
+
+.imgpanel{
+    margin: auto;
+    margin-left: 100px;
+    width: 37%;
+    height: 90%;
+    overflow: hidden;
+    background-image: url('../assets/library.jpeg');
+    background-position: center;
+    background-size: cover;
+    margin-right: 0px;
+    border-radius: 10px;
+    margin-right: 100px;
+}
+.imgpanel>img{
+    width: 100%;
+}
+form>h1{
+    font-size: 2.7rem;
+    margin: 0;
+    margin-bottom:3px ;
+}
+form>p{
+    color: #898787;
+}
+
+/*logout page styles*/
+select>option{
+    padding:10px;
+   width: 20%;
+}
+
+#message{
+    color: red;
+    position: absolute;
+    top: 0px;
+    left: 20%;
+    margin-right: auto;
+}
+#passwordreset{
+    margin-right:0px;
+    text-align: right;
+    
+}
+#linkpassword{
+    text-align: right;
+    width: 100%;
+    color: rgba(20, 134, 210, 0.777);
+}
+
+
+@media (max-width: 575px){
+    .imgpanel{
+        display: none;
+    }
+}
